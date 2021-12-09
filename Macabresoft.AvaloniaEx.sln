@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macabresoft.AvaloniaEx", "AvaloniaEx\Macabresoft.AvaloniaEx.csproj", "{48FD72B0-14EC-4A0A-B58D-12A67EE3D470}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macabresoft.AvaloniaEx.Tests", "Tests\Macabresoft.AvaloniaEx.Tests.csproj", "{5D13BB79-D16F-43FC-9A5E-83BD613E22EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48FD72B0-14EC-4A0A-B58D-12A67EE3D470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48FD72B0-14EC-4A0A-B58D-12A67EE3D470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48FD72B0-14EC-4A0A-B58D-12A67EE3D470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48FD72B0-14EC-4A0A-B58D-12A67EE3D470}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D13BB79-D16F-43FC-9A5E-83BD613E22EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D13BB79-D16F-43FC-9A5E-83BD613E22EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D13BB79-D16F-43FC-9A5E-83BD613E22EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D13BB79-D16F-43FC-9A5E-83BD613E22EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

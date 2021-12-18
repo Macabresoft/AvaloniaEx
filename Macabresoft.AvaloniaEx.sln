@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macabresoft.AvaloniaEx", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macabresoft.AvaloniaEx.Tests", "Tests\Macabresoft.AvaloniaEx.Tests.csproj", "{5D13BB79-D16F-43FC-9A5E-83BD613E22EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macabresoft.AvaloniaEx.Sample", "Macabresoft.AvaloniaEx.Sample\Macabresoft.AvaloniaEx.Sample.csproj", "{F455DA63-441D-4DA0-86A6-C9C3E3DDDEC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{5D13BB79-D16F-43FC-9A5E-83BD613E22EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D13BB79-D16F-43FC-9A5E-83BD613E22EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D13BB79-D16F-43FC-9A5E-83BD613E22EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F455DA63-441D-4DA0-86A6-C9C3E3DDDEC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F455DA63-441D-4DA0-86A6-C9C3E3DDDEC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F455DA63-441D-4DA0-86A6-C9C3E3DDDEC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F455DA63-441D-4DA0-86A6-C9C3E3DDDEC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

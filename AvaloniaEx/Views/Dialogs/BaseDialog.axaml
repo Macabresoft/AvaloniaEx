@@ -7,10 +7,11 @@
         ShowMinimize="False"
         ExtendClientAreaChromeHints="NoChrome"
         ExtendClientAreaToDecorationsHint="True"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="CenterOwner"
+        Background="{StaticResource SystemAltHighColor}">
     <Window.Template>
         <ControlTemplate>
-            <Border Background="{StaticResource SystemAltHighColor}">
+            <Border Background="{TemplateBinding Background}">
                 <VisualLayerManager>
                     <Grid RowDefinitions="Auto, *">
                         <Grid Grid.Row="0"
@@ -29,6 +30,17 @@
                                     Padding="{StaticResource StandardMarginAll}"
                                     BoxShadow="{StaticResource DefaultBoxShadow}"
                                     ZIndex="-1" />
+                            
+                            <TextBlock Grid.Column="0"
+                                       Grid.ColumnSpan="5"
+                                       IsHitTestVisible="False"
+                                       Text="{TemplateBinding Title}"
+                                       TextTrimming="CharacterEllipsis"
+                                       TextWrapping="NoWrap"
+                                       TextAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Opacity="0.6" />
 
                             <Panel Grid.Column="0"
                                    Width="24"
@@ -49,22 +61,14 @@
                             <ContentPresenter Grid.Column="2"
                                               VerticalAlignment="Center"
                                               Content="{TemplateBinding Menu}" />
-
+                            
                             <local:WindowButtons Grid.Column="4"
                                                  CloseCommand="{TemplateBinding CloseCommand}"
                                                  MinimizeCommand="{x:Static local:WindowHelper.MinimizeCommand}"
                                                  ToggleWindowStateCommand="{x:Static local:WindowHelper.ToggleWindowStateCommand}"
                                                  Window="{TemplateBinding}" />
 
-                            <TextBlock Grid.Column="0"
-                                       Grid.ColumnSpan="5"
-                                       IsHitTestVisible="False"
-                                       Text="{TemplateBinding Title}"
-                                       TextTrimming="CharacterEllipsis"
-                                       TextWrapping="NoWrap"
-                                       TextAlignment="Center"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center" />
+
                         </Grid>
 
                         <ContentPresenter Grid.Row="1"

@@ -1,0 +1,136 @@
+<avaloniaEx:BaseDialog xmlns="https://github.com/avaloniaui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:avaloniaEx="clr-namespace:Macabresoft.AvaloniaEx;assembly=Macabresoft.AvaloniaEx"
+                       xmlns:local="clr-namespace:Macabresoft.AvaloniaEx.Sample.Views"
+                       xmlns:models="clr-namespace:Macabresoft.AvaloniaEx.Sample.Models"
+                       xmlns:vm="using:Macabresoft.AvaloniaEx.Sample.ViewModels"
+                       CanResize="True"
+                       x:Class="Macabresoft.AvaloniaEx.Sample.Views.MainWindow"
+                       Title="AvaloniaEx Sample"
+                       ShowInTaskbar="True"
+                       WindowState="Normal"
+                       Width="1024"
+                       Height="768"
+                       Background="{StaticResource PurpleBrush}"
+                       Padding="{StaticResource DoubleMarginAll}">
+    <avaloniaEx:BaseDialog.Menu>
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Header="Exit"
+                          Command="{x:Static avaloniaEx:WindowHelper.CloseDialogCommand}"
+                          CommandParameter="{Binding $parent[local:MainWindow]}" />
+            </MenuItem>
+            <MenuItem Header="About">
+                <MenuItem Header="ViewSource"
+                          Command="{Binding ViewSourceCommand}" />
+            </MenuItem>
+        </Menu>
+    </avaloniaEx:BaseDialog.Menu>
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MinHeight="64" />
+            <RowDefinition Height="0" />
+            <RowDefinition Height="*" MinHeight="64" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MinWidth="64" />
+            <ColumnDefinition Width="0" />
+            <ColumnDefinition Width="*" MinWidth="64" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0"
+                Grid.Column="0"
+                Classes="Card"
+                Margin="{StaticResource DoubleMarginAll}">
+            <Grid RowDefinitions="*, Auto">
+                <Viewbox Grid.Row="0">
+                    <avaloniaEx:Icon
+                        Content="{StaticResource MacabresoftIcon}"
+                        Foreground="{StaticResource YellowBrush}"
+                        Width="256"
+                        Height="256" />
+                </Viewbox>
+
+                <StackPanel Grid.Row="1"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal"
+                            Margin="{StaticResource StandardMarginAll}">
+                    <Button Command="{Binding ViewSourceCommand}"
+                            Content="View Source" />
+                    <Button Command="{x:Static avaloniaEx:WindowHelper.CloseDialogCommand}"
+                            CommandParameter="{Binding $parent[local:MainWindow]}"
+                            Content="Exit" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <GridSplitter Grid.Row="1"
+                      Grid.Column="0"
+                      Classes="CardSplitter" />
+
+        <Border Grid.Row="2"
+                Grid.Column="0"
+                Classes="Card"
+                Margin="{StaticResource DoubleMarginAll}">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl>
+                    <ItemsControl.Items>
+                        <avaloniaEx:GroupBox Header="Lorem">
+                            <TextBlock Text="{Binding LoremIpsum}"
+                                       TextWrapping="Wrap" />
+                        </avaloniaEx:GroupBox>
+                        <avaloniaEx:GroupBox Header="Ipsum">
+                            <TextBlock Text="{Binding LoremIpsumLarge}"
+                                       TextWrapping="Wrap" />
+                        </avaloniaEx:GroupBox>
+                        <avaloniaEx:GroupBox Header="Dolor">
+                            <TextBlock Text="{Binding LoremIpsum}"
+                                       TextWrapping="Wrap" />
+                        </avaloniaEx:GroupBox>
+                    </ItemsControl.Items>
+                </ItemsControl>
+            </ScrollViewer>
+        </Border>
+
+        <GridSplitter Grid.Row="0"
+                      Grid.RowSpan="3"
+                      Grid.Column="1"
+                      Classes="CardSplitter" />
+
+        <Border Grid.Row="0"
+                Grid.RowSpan="3"
+                Grid.Column="2"
+                Classes="Card"
+                Margin="{StaticResource DoubleMarginAll}">
+            <TreeView Items="{Binding Root}">
+                <TreeView.Styles>
+                    <Style Selector="TreeViewItem">
+                        <Setter Property="IsExpanded" Value="True" />
+                    </Style>
+                </TreeView.Styles>
+                <TreeView.DataTemplates>
+                    <TreeDataTemplate DataType="{x:Type models:FakeDirectory}"
+                                      ItemsSource="{Binding Children}">
+                        <avaloniaEx:EditableSelectableItem Icon="{StaticResource DirectoryIcon}"
+                                                           IconForeground="{StaticResource YellowBrush}"
+                                                           Text="{Binding Name}"
+                                                           IsEditable="False" />
+
+                    </TreeDataTemplate>
+
+                    <TreeDataTemplate DataType="{x:Type models:FakeFile}">
+                        <avaloniaEx:EditableSelectableItem Icon="{StaticResource FileIcon}"
+                                                           IconForeground="{StaticResource WhiteBrush}"
+                                                           Text="{Binding Name}"
+                                                           IsEditable="False" />
+
+                    </TreeDataTemplate>
+                </TreeView.DataTemplates>
+            </TreeView>
+        </Border>
+    </Grid>
+</avaloniaEx:BaseDialog>

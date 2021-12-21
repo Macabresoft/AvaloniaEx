@@ -40,7 +40,7 @@
                                        TextAlignment="Center"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Opacity="0.6" />
+                                       Opacity="0.75" />
 
                             <Panel Grid.Column="0"
                                    Width="24"

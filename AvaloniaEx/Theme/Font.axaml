@@ -3,6 +3,6 @@
         xmlns:system="using:System">
     <Styles.Resources>
         <FontFamily x:Key="ContentControlThemeFontFamily">avares://Macabresoft.AvaloniaEx/Assets#Public Sans</FontFamily>
-        <system:Double x:Key="ControlContentThemeFontSize">12</system:Double>
+        <system:Double x:Key="ControlContentThemeFontSize">14</system:Double>
     </Styles.Resources>
 </Styles>

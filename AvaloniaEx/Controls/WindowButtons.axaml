@@ -25,7 +25,7 @@
         </Design.DataContext>
         <Button Command="{Binding MinimizeCommand}"
                 CommandParameter="{Binding Window}"
-                IsVisible="{Binding Window.CanResize}"
+                IsVisible="{Binding Window.ShowMinimize}"
                 ToolTip.Tip="Minimize the window">
             <Button.Styles>
                 <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">

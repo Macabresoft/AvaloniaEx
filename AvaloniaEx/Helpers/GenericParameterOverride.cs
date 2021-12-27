@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Unity.Resolution;
 
@@ -28,6 +29,6 @@ public class GenericParameterOverride : ResolverOverride, IResolve, IEquatable<P
 
     /// <inheritdoc />
     public object Resolve<TContext>(ref TContext context) where TContext : IResolveContext {
-        return this._parameters.TryDequeue(out var parameter) ? parameter : null;
+        return this._parameters.Any() ? this._parameters.Dequeue() : null;
     }
 }

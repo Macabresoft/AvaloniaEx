@@ -192,20 +192,21 @@ public class FileSystemService : IFileSystemService {
     public void OpenDirectoryInFileExplorer(string directoryPath) {
         if (this.DoesDirectoryExist(directoryPath)) {
             try {
-                var runtimeInfo = AvaloniaLocator.Current.GetService<IRuntimePlatform>().GetRuntimeInfo();
-                var program = runtimeInfo.OperatingSystem switch {
-                    OperatingSystemType.WinNT => "explorer.exe",
-                    OperatingSystemType.OSX => "open",
-                    OperatingSystemType.Linux => "xdg-open",
-                    _ => string.Empty
-                };
-
-                if (!string.IsNullOrEmpty(program)) {
-                    var startInfo = new ProcessStartInfo(program) {
-                        ArgumentList = { directoryPath }
+                if (AvaloniaLocator.Current.GetService<IRuntimePlatform>()?.GetRuntimeInfo() is { } runtimeInfo) {
+                    var program = runtimeInfo.OperatingSystem switch {
+                        OperatingSystemType.WinNT => "explorer.exe",
+                        OperatingSystemType.OSX => "open",
+                        OperatingSystemType.Linux => "xdg-open",
+                        _ => string.Empty
                     };
 
-                    Process.Start(startInfo);
+                    if (!string.IsNullOrEmpty(program)) {
+                        var startInfo = new ProcessStartInfo(program) {
+                            Arguments = $"\"{directoryPath}\""
+                        };
+
+                        Process.Start(startInfo);
+                    }
                 }
             }
             catch {

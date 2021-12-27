@@ -17,7 +17,7 @@ public class IsTypeConverter : IValueConverter {
     /// <inheritdoc />
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
         if (value != null && parameter is Type type) {
-            var result = value.GetType().IsAssignableTo(type);
+            var result = type.IsInstanceOfType(value);
             return this.InvertResult ? !result : result;
         }
 

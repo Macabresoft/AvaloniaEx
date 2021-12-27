@@ -22,7 +22,7 @@
                           CommandParameter="{Binding $parent[local:MainWindow]}" />
             </MenuItem>
             <MenuItem Header="About">
-                <MenuItem Header="ViewSource"
+                <MenuItem Header="View Source"
                           Command="{Binding ViewSourceCommand}" />
             </MenuItem>
         </Menu>

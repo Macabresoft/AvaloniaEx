@@ -1,7 +1,7 @@
 <Style xmlns="https://github.com/avaloniaui"
        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style.Resources>
-        <Color x:Key="SystemAltHighColor">#FF111111</Color>
+                <Color x:Key="SystemAltHighColor">#FF111111</Color>
         <Color x:Key="SystemAltLowColor">#33111111</Color>
         <Color x:Key="SystemAltMediumColor">#99111111</Color>
         <Color x:Key="SystemAltMediumHighColor">#CC111111</Color>
@@ -38,6 +38,8 @@
 
         <!-- TODO -->
         <Color x:Key="SystemErrorTextColor">#FFF000</Color>
+        
+        <Color x:Key="SystemAccentColor">#477E39</Color>
         
         <!-- TODO This should be affecting SliderThumbBackgroundPointerOver but it ain't -->
         <Color x:Key="SystemAccentColorLight1">#C8AB37</Color>

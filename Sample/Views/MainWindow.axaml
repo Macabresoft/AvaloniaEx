@@ -12,7 +12,7 @@
                        WindowState="Normal"
                        Width="1024"
                        Height="768"
-                       Background="{StaticResource PurpleBrush}"
+                       Background="{StaticResource SystemAccentBrush}"
                        Padding="{StaticResource DoubleMarginAll}">
     <avaloniaEx:BaseDialog.Menu>
         <Menu>

@@ -8,6 +8,6 @@
     </Application.DataTemplates>
 
     <Application.Styles>
-        <avaloniaEx:MacabreTheme Accent="Purple" />
+        <avaloniaEx:MacabreTheme Accent="Green" />
     </Application.Styles>
 </Application>

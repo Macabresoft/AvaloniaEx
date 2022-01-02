@@ -30,7 +30,7 @@
                                     Padding="{StaticResource StandardMarginAll}"
                                     BoxShadow="{StaticResource DefaultBoxShadow}"
                                     ZIndex="-1" />
-                            
+
                             <TextBlock Grid.Column="0"
                                        Grid.ColumnSpan="5"
                                        IsHitTestVisible="False"
@@ -45,6 +45,7 @@
                             <Panel Grid.Column="0"
                                    Width="24"
                                    Height="24"
+                                   IsVisible="{TemplateBinding ShowIcon}"
                                    Margin="{StaticResource StandardMarginHorizontal}">
                                 <local:Icon IsHitTestVisible="False"
                                             IsVisible="{TemplateBinding VectorIcon, Converter={x:Static ObjectConverters.IsNotNull}}"
@@ -61,7 +62,7 @@
                             <ContentPresenter Grid.Column="2"
                                               VerticalAlignment="Center"
                                               Content="{TemplateBinding Menu}" />
-                            
+
                             <local:WindowButtons Grid.Column="4"
                                                  CloseCommand="{TemplateBinding CloseCommand}"
                                                  MinimizeCommand="{x:Static local:WindowHelper.MinimizeCommand}"

@@ -19,6 +19,9 @@ public class BaseDialog : Window, IWindow {
     public static readonly StyledProperty<Menu> MenuProperty =
         AvaloniaProperty.Register<BaseDialog, Menu>(nameof(Menu), defaultBindingMode: BindingMode.OneWay);
 
+    public static readonly StyledProperty<bool> ShowIconProperty =
+        AvaloniaProperty.Register<BaseDialog, bool>(nameof(ShowIcon), defaultBindingMode: BindingMode.OneWay, defaultValue: true);
+
     public static readonly StyledProperty<bool> ShowMinimizeProperty =
         AvaloniaProperty.Register<BaseDialog, bool>(nameof(ShowMinimize), defaultBindingMode: BindingMode.OneWay, defaultValue: true);
 
@@ -38,6 +41,11 @@ public class BaseDialog : Window, IWindow {
     public Menu Menu {
         get => this.GetValue(MenuProperty);
         set => this.SetValue(MenuProperty, value);
+    }
+
+    public bool ShowIcon {
+        get => this.GetValue(ShowIconProperty);
+        set => this.SetValue(ShowIconProperty, value);
     }
 
     public bool ShowMinimize {

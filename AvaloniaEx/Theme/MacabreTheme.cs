@@ -26,7 +26,7 @@ public class MacabreTheme : AvaloniaObject, IStyle, IResourceProvider {
     /// The accent property.
     /// </summary>
     public static readonly StyledProperty<ThemeAccent> AccentProperty =
-        AvaloniaProperty.Register<MacabreTheme, ThemeAccent>(nameof(Accent), ThemeAccent.Purple);
+        AvaloniaProperty.Register<MacabreTheme, ThemeAccent>(nameof(Accent));
 
     private readonly Dictionary<ThemeAccent, Styles> _accents = new();
     private Styles _controlStyles = new();

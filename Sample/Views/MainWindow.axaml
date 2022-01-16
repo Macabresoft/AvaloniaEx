@@ -158,8 +158,8 @@
                 <TextBlock Classes="Label"
                            Text="A Curious List"
                            Foreground="{StaticResource YellowBrush}"/>
-                <ListBox Grid.Row="1"
-                         Items="{Binding List}" />
+                <avaloniaEx:AlternatingListBox Grid.Row="1"
+                                               Items="{Binding List}" />
             </Grid>
         </Border>
     </Grid>

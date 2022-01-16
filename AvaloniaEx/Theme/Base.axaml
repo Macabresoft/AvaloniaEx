@@ -6,6 +6,7 @@
     <StyleInclude Source="avares://Macabresoft.AvaloniaEx/Theme/BoxShadows.axaml" />
     <StyleInclude Source="avares://Macabresoft.AvaloniaEx/Theme/IconPaths.axaml" />
 
+    <StyleInclude Source="avares://Macabresoft.AvaloniaEx/Theme/Controls/AlternatingListBox.axaml" />
     <StyleInclude Source="avares://Macabresoft.AvaloniaEx/Theme/Controls/AutoCompleteBox.axaml" />
     <StyleInclude Source="avares://Macabresoft.AvaloniaEx/Theme/Controls/Border.axaml" />
     <StyleInclude Source="avares://Macabresoft.AvaloniaEx/Theme/Controls/Button.axaml" />
@@ -26,5 +27,4 @@
     <StyleInclude Source="avares://Macabresoft.AvaloniaEx/Theme/Controls/TreeView.axaml" />
     <StyleInclude Source="avares://Macabresoft.AvaloniaEx/Theme/Controls/TreeViewItem.axaml" />
     <StyleInclude Source="avares://Macabresoft.AvaloniaEx/Theme/Controls/Window.axaml" />
-
 </Styles>

@@ -47,5 +47,6 @@
         <SolidColorBrush x:Key="DarkYellowBrush" Color="#735D23" />
         <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource SystemBaseHighColor}" />
         <SolidColorBrush x:Key="SystemAccentBrush" Color="{StaticResource SystemAccentColor}" />
+        <SolidColorBrush x:Key="AlternateListBoxItemBackgroundColor" Color="#28FFFFFF" />
     </Style.Resources>
 </Style>

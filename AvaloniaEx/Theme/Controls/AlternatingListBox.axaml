@@ -1,0 +1,36 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:avaloniaEx="clr-namespace:Macabresoft.AvaloniaEx">
+    <Style Selector="avaloniaEx|AlternatingListBox">
+        <Setter Property="TextBlock.Foreground" Value="{StaticResource SystemControlForegroundBaseHighBrush}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="AlternateBackground" Value="{StaticResource AlternateListBoxItemBackgroundColor}" />
+        <Setter Property="BorderBrush" Value="{StaticResource SystemControlForegroundBaseHighBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource ListBoxBorderThemeThickness}" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />        
+        <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}" />
+        <Setter Property="Margin" Value="{StaticResource StandardMarginAll}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ScrollViewer Name="PART_ScrollViewer"
+                                  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+                                  AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}">
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        Items="{TemplateBinding Items}"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                        ItemTemplate="{TemplateBinding ItemTemplate}"
+                                        Margin="{TemplateBinding Padding}"
+                                        VirtualizationMode="{TemplateBinding VirtualizationMode}"/>
+                    </ScrollViewer>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

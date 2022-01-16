@@ -2,18 +2,21 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Input;
 using Macabresoft.AvaloniaEx.Sample.Models;
 using Macabresoft.Core;
 using ReactiveUI;
 
-public class MainWindowViewModel : ViewModelBase {
+public class MainWindowViewModel : ReactiveObject {
     public MainWindowViewModel() {
         this.ViewSourceCommand = ReactiveCommand.Create(this.ViewSource);
-        var root = this.CreateFakeDirectory(2, 0, "Root");
-        this.Root = new[] { root };
+        this.List = this.CreateList();
+        this.Root = new[] { this.CreateFakeDirectory(2, 0, "Root") };
     }
     
+    public IReadOnlyCollection<string> List { get; }
+
     public IReadOnlyCollection<FileSystemObject> Root { get; }
 
     public string LoremIpsum => Resources.Lorem_Ipsum;
@@ -24,6 +27,10 @@ public class MainWindowViewModel : ViewModelBase {
 
     private void ViewSource() {
         WebHelper.OpenInBrowser("https://github.com/Macabresoft/Macabresoft.AvaloniaEx");
+    }
+
+    private IReadOnlyCollection<string> CreateList() {
+        return new string[25].Select(x => Guid.NewGuid().ToString()).ToList();
     }
 
     private FakeDirectory CreateFakeDirectory(int maximumDepth, int currentDepth, string name) {

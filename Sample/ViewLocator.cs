@@ -4,6 +4,8 @@ using Avalonia.Controls.Templates;
 using Macabresoft.AvaloniaEx.Sample.ViewModels;
 
 namespace Macabresoft.AvaloniaEx.Sample {
+    using ReactiveUI;
+
     public class ViewLocator : IDataTemplate {
         public IControl Build(object data) {
             var name = data.GetType().FullName!.Replace("ViewModel", "View");
@@ -18,7 +20,7 @@ namespace Macabresoft.AvaloniaEx.Sample {
         }
 
         public bool Match(object data) {
-            return data is ViewModelBase;
+            return data is ReactiveObject;
         }
     }
 }

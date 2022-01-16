@@ -38,6 +38,8 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*" MinWidth="64" />
+            <ColumnDefinition Width="0" />
             <ColumnDefinition Width="*" MinWidth="64" />
             <ColumnDefinition Width="0" />
             <ColumnDefinition Width="*" MinWidth="64" />
@@ -139,6 +141,26 @@
                     </TreeDataTemplate>
                 </TreeView.DataTemplates>
             </TreeView>
+        </Border>
+        
+        <GridSplitter Grid.Row="0"
+                      Grid.RowSpan="3"
+                      Grid.Column="3"
+                      Classes="CardSplitter" />
+        
+        <Border Grid.Row="0"
+                Grid.RowSpan="3"
+                Grid.Column="4"
+                Classes="Card"
+                Margin="{StaticResource DoubleMarginAll}">
+            <Grid RowDefinitions="Auto, *"
+                  Margin="{StaticResource StandardMarginAll}">
+                <TextBlock Classes="Label"
+                           Text="A Curious List"
+                           Foreground="{StaticResource YellowBrush}"/>
+                <ListBox Grid.Row="1"
+                         Items="{Binding List}" />
+            </Grid>
         </Border>
     </Grid>
 </avaloniaEx:BaseDialog>

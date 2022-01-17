@@ -1,9 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:local="clr-namespace:Macabresoft.AvaloniaEx"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Styles.Resources>
-        <local:InverseIsStringNullOrEmptyConverter x:Key="InverseIsStringNullOrEmptyConverter" />
-    </Styles.Resources>
     <Style Selector="TextBlock">
         <Setter Property="Margin"
                 Value="{DynamicResource StandardMarginAll}" />
@@ -13,7 +10,7 @@
         <Setter Property="FontWeight"
                 Value="Bold" />
         <Setter Property="IsVisible"
-                Value="{Binding Text, RelativeSource={RelativeSource Self}, Converter={StaticResource InverseIsStringNullOrEmptyConverter}}" />
+                Value="{Binding Text, RelativeSource={RelativeSource Self}, Converter={x:Static local:InverseIsStringNullOrEmptyConverter.Instance}}" />
         <Setter Property="TextTrimming"
                 Value="CharacterEllipsis" />
         <Setter Property="VerticalAlignment"

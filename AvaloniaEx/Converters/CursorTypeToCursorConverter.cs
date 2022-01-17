@@ -34,6 +34,7 @@ public class CursorTypeToCursorConverter : IValueConverter {
         return AvaloniaProperty.UnsetValue;
     }
 
+    /// <inheritdoc />
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
         throw new NotImplementedException();
     }

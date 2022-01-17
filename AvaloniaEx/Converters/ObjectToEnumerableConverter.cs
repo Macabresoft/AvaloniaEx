@@ -10,6 +10,11 @@ using Avalonia.Data.Converters;
 /// Converts an object to an enumerable. Useful for the root of a tree.
 /// </summary>
 public class ObjectToEnumerableConverter : IValueConverter {
+    /// <summary>
+    /// Gets a singleton instance.
+    /// </summary>
+    public static ObjectToEnumerableConverter Instance { get; } = new(); 
+    
     /// <inheritdoc />
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
         return value != null ? new[] { value } : Enumerable.Empty<object>();

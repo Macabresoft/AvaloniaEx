@@ -2,10 +2,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Macabresoft.AvaloniaEx"
              x:Class="Macabresoft.AvaloniaEx.EditableSelectableItem">
-    <UserControl.Resources>
-        <local:MultiBoolConverter x:Key="MultiBoolConverter"
-                                  RequireAllTrue="True" />
-    </UserControl.Resources>
     <Grid ColumnDefinitions="Auto, *"
           HorizontalAlignment="Stretch">
         <local:Icon Grid.Column="0"
@@ -32,7 +28,7 @@
                  KeyDown="TextBox_OnKeyDown"
                  LostFocus="TextBox_OnLostFocus">
             <TextBox.IsVisible>
-                <MultiBinding Converter="{StaticResource MultiBoolConverter}">
+                <MultiBinding Converter="{x:Static local:MultiBoolConverter.And}">
                     <Binding Path="$parent[ISelectable].IsSelected" />
                     <Binding Path="$parent[local:EditableSelectableItem].IsEditing" />
                 </MultiBinding>

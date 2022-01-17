@@ -8,6 +8,17 @@ using Avalonia.Data.Converters;
 /// Takes a value and a parameter. If these two things are equal, returns true.
 /// </summary>
 public class EqualityConverter : IValueConverter {
+    
+    /// <summary>
+    /// Instance of this converter with <see cref="InvertResult"/> set to false.
+    /// </summary>
+    public static EqualityConverter IsEqual { get; } = new();
+    
+    /// <summary>
+    /// Instance of this converter with <see cref="InvertResult"/> set to true.
+    /// </summary>
+    public static EqualityConverter IsNotEqual { get; } = new() { InvertResult = true };
+    
     /// <summary>
     /// Gets or sets a value indicating whether or not the result should be inverted.
     /// </summary>

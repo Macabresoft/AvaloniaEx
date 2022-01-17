@@ -11,6 +11,16 @@ using Avalonia.Data.Converters;
 /// </summary>
 public class MultiBoolConverter : IMultiValueConverter {
     /// <summary>
+    /// Instance of this converter where all boolean values must be true.
+    /// </summary>
+    public static MultiBoolConverter And { get; } = new() { RequireAllTrue = true };
+
+    /// <summary>
+    /// Instance of this converter where only one boolean value must be true.
+    /// </summary>
+    public static MultiBoolConverter Or { get; } = new();
+    
+    /// <summary>
     /// Gets or sets a value indicating whether this requires all values to return true. If set to false, only a single bool
     /// will need to be true; otherwise, all will need to be true.
     /// </summary>

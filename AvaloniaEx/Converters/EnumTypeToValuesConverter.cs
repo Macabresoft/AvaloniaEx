@@ -10,6 +10,11 @@ using Avalonia.Data.Converters;
 /// Converts from a <see cref="Type" /> of an enum to a collection of all the distinct enum values.
 /// </summary>
 public sealed class EnumTypeToValuesConverter : IValueConverter {
+    /// <summary>
+    /// Gets a singleton instance.
+    /// </summary>
+    public static EnumTypeToValuesConverter Instance { get; } = new(); 
+    
     /// <inheritdoc />
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
         var result = new List<object>();

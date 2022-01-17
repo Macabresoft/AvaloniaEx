@@ -1,12 +1,7 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Macabresoft.AvaloniaEx"
-             xmlns:system="clr-namespace:System;assembly=mscorlib"
              x:Class="Macabresoft.AvaloniaEx.WindowButtons">
-    <UserControl.Resources>
-        <local:WindowStateToShowMaximizeConverter x:Key="ShowMaximizeConverter" />
-        <system:Boolean x:Key="TrueValue">True</system:Boolean>
-    </UserControl.Resources>
     <UserControl.Styles>
         <Style Selector="Button">
             <Setter Property="Width" Value="{Binding $self.Bounds.Height}" />
@@ -46,13 +41,12 @@
                 </Style>
             </Button.Styles>
             <Panel>
-                <local:Icon IsVisible="{Binding Window.WindowState, Converter={StaticResource ShowMaximizeConverter}}"
+                <local:Icon IsVisible="{Binding Window.WindowState, Converter={x:Static local:WindowStateConverter.ShowMaximize}}"
                             Content="{StaticResource MaximizeIcon}"
                             Classes="Small" />
-                <local:Icon
-                    IsVisible="{Binding Window.WindowState, Converter={StaticResource ShowMaximizeConverter}, ConverterParameter={StaticResource TrueValue}}"
-                    Content="{StaticResource RestoreIcon}"
-                    Classes="Small" />
+                <local:Icon IsVisible="{Binding Window.WindowState, Converter={x:Static local:WindowStateConverter.ShowRestore}}"
+                            Content="{StaticResource RestoreIcon}"
+                            Classes="Small" />
             </Panel>
         </Button>
 

@@ -6,12 +6,17 @@ using System.Globalization;
 using System.Linq;
 using Avalonia;
 using Avalonia.Data.Converters;
-using JetBrains.Annotations;
 
+/// <summary>
+/// Concatenates strings using the specified character.
+/// </summary>
 public class StringConcatenationConverter : IMultiValueConverter {
-    [CanBeNull]
+    /// <summary>
+    /// Gets or sets the character by which to concatenate strings.
+    /// </summary>
     public string ConcatenationCharacter { get; set; }
 
+    /// <inheritdoc />
     public object Convert(IList<object> values, Type targetType, object parameter, CultureInfo culture) {
         var stringValues = values.OfType<string>().ToList();
         if (stringValues.Any()) {

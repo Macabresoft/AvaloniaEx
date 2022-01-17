@@ -8,6 +8,11 @@ using Avalonia.Data.Converters;
 /// Converts a string to a bool. The result will be true if the string is not null or empty.
 /// </summary>
 public class InverseIsStringNullOrEmptyConverter : IValueConverter {
+    /// <summary>
+    /// Gets a singleton instance.
+    /// </summary>
+    public static InverseIsStringNullOrEmptyConverter Instance { get; } = new(); 
+    
     /// <inheritdoc />
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
         return value is string stringValue && !string.IsNullOrEmpty(stringValue);

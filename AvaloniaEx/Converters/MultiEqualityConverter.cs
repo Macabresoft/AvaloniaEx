@@ -9,6 +9,11 @@ using Avalonia.Data.Converters;
 /// Takes a collection of values and returns true if they are all equal.
 /// </summary>
 public class MultiEqualityConverter : IMultiValueConverter {
+    /// <summary>
+    /// Gets a singleton instance.
+    /// </summary>
+    public static MultiEqualityConverter Instance { get; } = new(); 
+    
     /// <inheritdoc />
     public object Convert(IList<object> values, Type targetType, object parameter, CultureInfo culture) {
         var result = true;

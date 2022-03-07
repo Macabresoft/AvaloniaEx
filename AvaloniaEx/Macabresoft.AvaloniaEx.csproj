@@ -13,9 +13,9 @@
         <RepositoryType>git</RepositoryType>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <Company>Macabresoft</Company>
-        <AssemblyVersion>1.0.16.0</AssemblyVersion>
-        <FileVersion>1.0.16.0</FileVersion>
-        <PackageVersion>1.0.16</PackageVersion>
+        <AssemblyVersion>1.0.17.0</AssemblyVersion>
+        <FileVersion>1.0.17.0</FileVersion>
+        <PackageVersion>1.0.17</PackageVersion>
         <TargetFrameworks>net6.0;</TargetFrameworks>
     </PropertyGroup>
     <ItemGroup>

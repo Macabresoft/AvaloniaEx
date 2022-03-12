@@ -153,12 +153,24 @@
                 Grid.Column="4"
                 Classes="Card"
                 Margin="{StaticResource DoubleMarginAll}">
-            <Grid RowDefinitions="Auto, *"
+            <Grid ColumnDefinitions="Auto, *"
+                  RowDefinitions="Auto, *"
                   Margin="{StaticResource StandardMarginAll}">
-                <TextBlock Classes="Label"
-                           Text="A Curious List"
+                <TextBlock Grid.Column="0"
+                           Grid.Row="0"
+                           Classes="Label"
+                           Text="Name"
+                           Width="40"
                            Foreground="{StaticResource YellowBrush}"/>
-                <avaloniaEx:AlternatingListBox Grid.Row="1"
+                
+                <TextBox Grid.Row="0"
+                         Grid.Column="1"
+                         Classes="Line"
+                         HorizontalAlignment="Stretch" />
+                
+                <avaloniaEx:AlternatingListBox Grid.Column="0"
+                                               Grid.Row="1"
+                                               Grid.ColumnSpan="2"
                                                Items="{Binding List}" />
             </Grid>
         </Border>

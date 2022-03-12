@@ -13,9 +13,9 @@
         <RepositoryType>git</RepositoryType>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <Company>Macabresoft</Company>
-        <AssemblyVersion>1.0.17.0</AssemblyVersion>
-        <FileVersion>1.0.17.0</FileVersion>
-        <PackageVersion>1.0.17</PackageVersion>
+        <AssemblyVersion>1.0.18.0</AssemblyVersion>
+        <FileVersion>1.0.18.0</FileVersion>
+        <PackageVersion>1.0.18</PackageVersion>
         <TargetFrameworks>net6.0;</TargetFrameworks>
         <PackageIconUrl>https://github.com/Macabresoft/AvaloniaEx/blob/main/icon.png?raw=true</PackageIconUrl>
     </PropertyGroup>

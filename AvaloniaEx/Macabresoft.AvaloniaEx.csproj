@@ -17,6 +17,7 @@
         <FileVersion>1.0.17.0</FileVersion>
         <PackageVersion>1.0.17</PackageVersion>
         <TargetFrameworks>net6.0;</TargetFrameworks>
+        <PackageIconUrl>https://github.com/Macabresoft/AvaloniaEx/blob/main/icon.png?raw=true</PackageIconUrl>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="0.10.13" />

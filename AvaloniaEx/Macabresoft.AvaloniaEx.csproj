@@ -13,11 +13,11 @@
         <RepositoryType>git</RepositoryType>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <Company>Macabresoft</Company>
-        <AssemblyVersion>1.0.18.0</AssemblyVersion>
-        <FileVersion>1.0.18.0</FileVersion>
-        <PackageVersion>1.0.18</PackageVersion>
+        <PackageIcon>icon.png</PackageIcon>
+        <AssemblyVersion>1.0.19.0</AssemblyVersion>
+        <FileVersion>1.0.19.0</FileVersion>
+        <PackageVersion>1.0.19</PackageVersion>
         <TargetFrameworks>net6.0;</TargetFrameworks>
-        <PackageIconUrl>https://github.com/Macabresoft/AvaloniaEx/blob/main/icon.png?raw=true</PackageIconUrl>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="0.10.13" />
@@ -28,32 +28,6 @@
     </ItemGroup>
     <ItemGroup>
         <AvaloniaResource Include="Assets\**" />
-    </ItemGroup>
-    <ItemGroup>
-        <Compile Update="Dialogs\BaseDialog.axaml.cs">
-            <DependentUpon>BaseDialog.axaml</DependentUpon>
-            <SubType>Code</SubType>
-        </Compile>
-        <Compile Update="Dialogs\YesNoCancelDialog.axaml.cs">
-            <DependentUpon>YesNoCancelDialog.axaml</DependentUpon>
-            <SubType>Code</SubType>
-        </Compile>
-        <Compile Update="Dialogs\WarningDialog.axaml.cs">
-            <DependentUpon>WarningDialog.axaml</DependentUpon>
-            <SubType>Code</SubType>
-        </Compile>
-        <Compile Update="Dialogs\LicenseDialog.axaml.cs">
-            <DependentUpon>LicenseDialog.axaml</DependentUpon>
-            <SubType>Code</SubType>
-        </Compile>
-        <Compile Update="Dialogs\TypeSelectionDialog.axaml.cs">
-            <DependentUpon>TypeSelectionDialog.axaml</DependentUpon>
-            <SubType>Code</SubType>
-        </Compile>
-        <Compile Update="Dialogs\ContentSelectionDialog.axaml.cs">
-            <DependentUpon>ContentSelectionDialog.axaml</DependentUpon>
-            <SubType>Code</SubType>
-        </Compile>
     </ItemGroup>
     <ItemGroup>
       <Content Include="..\icon.png">

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using Avalonia.Data.Converters;
 
 /// <summary>
@@ -22,9 +23,10 @@ public sealed class EnumTypeToValuesConverter : IValueConverter {
         if (value is Type { IsEnum: true } enumType) {
             var values = Enum.GetValues(enumType);
             var intValues = values.Cast<Enum>().Select(System.Convert.ToInt32).ToList();
+            var showZero = !enumType.GetCustomAttributes<FlagsAttribute>().Any();
 
             for (var i = 0; i < values.Length; i++) {
-                if (intValues[i] != 0) {
+                if (showZero || intValues[i] != 0) {
                     result.Add(values.GetValue(i));
                 }
             }

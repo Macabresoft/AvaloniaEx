@@ -14,9 +14,9 @@
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <Company>Macabresoft</Company>
         <PackageIcon>icon.png</PackageIcon>
-        <AssemblyVersion>1.0.19.0</AssemblyVersion>
-        <FileVersion>1.0.19.0</FileVersion>
-        <PackageVersion>1.0.19</PackageVersion>
+        <AssemblyVersion>1.0.20.0</AssemblyVersion>
+        <FileVersion>1.0.20.0</FileVersion>
+        <PackageVersion>1.0.20</PackageVersion>
         <TargetFrameworks>net6.0;</TargetFrameworks>
     </PropertyGroup>
     <ItemGroup>

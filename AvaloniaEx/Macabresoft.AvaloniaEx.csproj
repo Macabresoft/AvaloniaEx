@@ -14,15 +14,15 @@
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <Company>Macabresoft</Company>
         <PackageIcon>icon.png</PackageIcon>
-        <AssemblyVersion>1.0.20.0</AssemblyVersion>
-        <FileVersion>1.0.20.0</FileVersion>
-        <PackageVersion>1.0.20</PackageVersion>
+        <AssemblyVersion>1.0.21.0</AssemblyVersion>
+        <FileVersion>1.0.21.0</FileVersion>
+        <PackageVersion>1.0.21</PackageVersion>
         <TargetFrameworks>net6.0;</TargetFrameworks>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="0.10.14" />
-        <PackageReference Include="Avalonia.Desktop" Version="0.10.14" />
-        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.14" />
+        <PackageReference Include="Avalonia" Version="0.10.16" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.16" />
+        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.16" />
         <PackageReference Include="Macabresoft.Core" Version="1.0.12" />
         <PackageReference Include="Unity" Version="5.11.10" />
     </ItemGroup>

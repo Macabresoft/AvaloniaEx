@@ -154,7 +154,7 @@
                 Classes="Card"
                 Margin="{StaticResource DoubleMarginAll}">
             <Grid ColumnDefinitions="Auto, *"
-                  RowDefinitions="Auto, *"
+                  RowDefinitions="Auto, Auto, *"
                   Margin="{StaticResource StandardMarginAll}">
                 <TextBlock Grid.Column="0"
                            Grid.Row="0"
@@ -168,8 +168,13 @@
                          Classes="Line"
                          HorizontalAlignment="Stretch" />
                 
+                <Border Grid.Column="0"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        Classes="HorizontalSeparator"/>
+                
                 <avaloniaEx:AlternatingListBox Grid.Column="0"
-                                               Grid.Row="1"
+                                               Grid.Row="2"
                                                Grid.ColumnSpan="2"
                                                Items="{Binding List}" />
             </Grid>

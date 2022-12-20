@@ -30,6 +30,15 @@
         <Setter Property="BorderBrush" Value="{StaticResource ComboBoxBorderBrush}" />
         <Setter Property="BorderThickness" Value="3" />
     </Style>
+    
+    <Style Selector="Border.HorizontalSeparator">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{StaticResource ComboBoxBorderBrush}" />
+        <Setter Property="BorderThickness" Value="0,0.5,0,0.5" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="{StaticResource DoubleMarginAll}" />
+    </Style>
 
     <Style Selector="Border.VerticalSeparator">
         <Setter Property="Background" Value="Transparent" />

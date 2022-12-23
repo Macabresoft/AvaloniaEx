@@ -89,6 +89,27 @@
             <ScrollViewer HorizontalScrollBarVisibility="Disabled">
                 <ItemsControl>
                     <ItemsControl.Items>
+                        <avaloniaEx:GroupBox Header="Icons">
+                            <WrapPanel>
+                                <WrapPanel.Styles>
+                                    <Style Selector="avaloniaEx|Icon">
+                                        <Setter Property="Height" Value="64" />
+                                        <Setter Property="Width" Value="64" />
+                                        <Setter Property="Margin" Value="{StaticResource DoubleMarginAll}" />
+
+                                    </Style>
+                                </WrapPanel.Styles>
+                                
+                                <avaloniaEx:Icon Content="{StaticResource MacabresoftIcon}"
+                                                 ToolTip.Tip="MacabresoftIcon" />
+                                <avaloniaEx:Icon Content="{StaticResource GamePadIcon}"
+                                                 ToolTip.Tip="GamePadIcon" />
+                                <avaloniaEx:Icon Content="{StaticResource MouseClickIcon}"
+                                                 ToolTip.Tip="MouseClickIcon" />
+                                <avaloniaEx:Icon Content="{StaticResource KeyboardIcon}"
+                                                 ToolTip.Tip="KeyboardIcon" />
+                            </WrapPanel>
+                        </avaloniaEx:GroupBox>
                         <avaloniaEx:GroupBox Header="Lorem">
                             <TextBlock Text="{Binding LoremIpsum}"
                                        TextWrapping="Wrap" />

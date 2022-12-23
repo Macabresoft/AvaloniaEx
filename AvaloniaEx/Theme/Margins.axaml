@@ -12,6 +12,8 @@
         <Thickness x:Key="StandardMarginBottom">0,0,0,3</Thickness>
 
         <Thickness x:Key="DoubleMarginAll">6</Thickness>
+        <Thickness x:Key="DoubleMarginHorizontal">6,0,6,0</Thickness>
+        <Thickness x:Key="DoubleMarginVertical">0,6,0,6</Thickness>
         <Thickness x:Key="DoubleMarginLeftTopBottom">6,6,0,6</Thickness>
     </Style.Resources>
 </Style>

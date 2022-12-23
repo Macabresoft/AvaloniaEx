@@ -37,7 +37,7 @@
         <Setter Property="BorderThickness" Value="0,0.5,0,0.5" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Margin" Value="{StaticResource DoubleMarginAll}" />
+        <Setter Property="Margin" Value="{StaticResource DoubleMarginVertical}" />
     </Style>
 
     <Style Selector="Border.VerticalSeparator">
@@ -46,6 +46,6 @@
         <Setter Property="BorderThickness" Value="0.5,0,0.5,0" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="Margin" Value="{StaticResource DoubleMarginAll}" />
+        <Setter Property="Margin" Value="{StaticResource DoubleMarginHorizontal}" />
     </Style>
 </Styles>

@@ -110,7 +110,14 @@
                                                  ToolTip.Tip="KeyboardIcon" />
                             </WrapPanel>
                         </avaloniaEx:GroupBox>
-                        <avaloniaEx:GroupBox Header="Lorem">
+                        <avaloniaEx:GroupBox Header="Controls">
+                            <StackPanel Orientation="Vertical"
+                                        HorizontalAlignment="Stretch">
+                                <avaloniaEx:FlagsComboBox EnumType="{x:Type models:FakeFlagsEnum}"
+                                                          SelectedValue="{Binding SelectedFakeFlagsEnumValue}" />
+                            </StackPanel>
+
+                        </avaloniaEx:GroupBox>                        <avaloniaEx:GroupBox Header="Lorem">
                             <TextBlock Text="{Binding LoremIpsum}"
                                        TextWrapping="Wrap" />
                         </avaloniaEx:GroupBox>

@@ -1,0 +1,36 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:avaloniaEx="clr-namespace:Macabresoft.AvaloniaEx;assembly=Macabresoft.AvaloniaEx"
+             xmlns:local="clr-namespace:Macabresoft.AvaloniaEx;assembly=Macabresoft.AvaloniaEx"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Macabresoft.AvaloniaEx.FlagsComboBox">
+    <ComboBox Classes="Flags"
+              Items="{Binding $parent[local:FlagsComboBox].EnumType, Converter={x:Static local:EnumTypeToValuesConverter.Instance}}"
+              SelectionChanged="SelectingItemsControl_OnSelectionChanged"
+              PlaceholderText="{Binding $parent[local:FlagsComboBox].SelectedValue, Converter={x:Static avaloniaEx:FlagsComboBoxDisplayNameConverter.Instance}}"
+              ToolTip.Tip="{Binding $parent[local:FlagsComboBox].SelectedValue}">
+        <ComboBox.Styles>
+            <Style Selector="ComboBoxItem">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            </Style>
+        </ComboBox.Styles>
+        <ComboBox.ItemTemplate>
+            <DataTemplate>
+                <Panel IsVisible="{Binding Converter={x:Static ObjectConverters.IsNotNull}}">
+                    <CheckBox HorizontalAlignment="Stretch"
+                              Content="{Binding Converter={x:Static avaloniaEx:FlagsComboBoxDisplayNameConverter.Instance}}"
+                              Command="{Binding $parent[local:FlagsComboBox].ToggleValueCommand}"
+                              CommandParameter="{Binding}"
+                              ToolTip.Tip="{Binding}">
+                        <CheckBox.IsChecked>
+                            <MultiBinding Converter="{x:Static local:FlagsEnumToBoolConverter.Instance}">
+                                <Binding Path="$parent[local:FlagsComboBox].SelectedValue"
+                                         Mode="TwoWay" />
+                                <Binding />
+                            </MultiBinding>
+                        </CheckBox.IsChecked>
+                    </CheckBox>
+                </Panel>
+            </DataTemplate>
+        </ComboBox.ItemTemplate>
+    </ComboBox>
+</UserControl>

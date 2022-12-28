@@ -6,7 +6,7 @@
     <ComboBox Classes="Flags"
               Items="{Binding $parent[local:FlagsComboBox].EnumType, Converter={x:Static local:EnumTypeToValuesConverter.Instance}}"
               SelectionChanged="SelectingItemsControl_OnSelectionChanged"
-              PlaceholderText="{Binding $parent[local:FlagsComboBox].SelectedValue, Converter={x:Static avaloniaEx:FlagsComboBoxDisplayNameConverter.Instance}}"
+              PlaceholderText="{Binding $parent[local:FlagsComboBox].SelectedValue, Converter={x:Static avaloniaEx:DisplayNameConverter.Instance}}"
               ToolTip.Tip="{Binding $parent[local:FlagsComboBox].SelectedValue}">
         <ComboBox.Styles>
             <Style Selector="ComboBoxItem">
@@ -17,7 +17,7 @@
             <DataTemplate>
                 <Panel IsVisible="{Binding Converter={x:Static ObjectConverters.IsNotNull}}">
                     <CheckBox HorizontalAlignment="Stretch"
-                              Content="{Binding Converter={x:Static avaloniaEx:FlagsComboBoxDisplayNameConverter.Instance}}"
+                              Content="{Binding Converter={x:Static avaloniaEx:DisplayNameConverter.Instance}}"
                               Command="{Binding $parent[local:FlagsComboBox].ToggleValueCommand}"
                               CommandParameter="{Binding}"
                               ToolTip.Tip="{Binding}">

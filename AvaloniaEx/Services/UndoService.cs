@@ -66,9 +66,8 @@ public interface IUndoService : IDisposable, INotifyPropertyChanged {
 /// <summary>
 /// A service which handles undo/redo operations.
 /// </summary>
-public class UndoService : ReactiveObject, IUndoService {
+public sealed class UndoService : ReactiveObject, IUndoService {
     private readonly object _lock = new();
-
     private readonly Stack<UndoCommand> _redoStack = new(50);
     private readonly Stack<UndoCommand> _undoStack = new(50);
 
@@ -96,7 +95,7 @@ public class UndoService : ReactiveObject, IUndoService {
     /// <summary>
     /// Gets a stack of all undo operations associated with this service.
     /// </summary>
-    protected IReadOnlyCollection<UndoCommand> UndoStack => this._undoStack;
+    private IReadOnlyCollection<UndoCommand> UndoStack => this._undoStack;
 
     /// <inheritdoc />
     public void Clear() {
@@ -115,7 +114,7 @@ public class UndoService : ReactiveObject, IUndoService {
     }
 
     /// <inheritdoc />
-    public virtual void Dispose() {
+    public void Dispose() {
         this._undoStack.Clear();
         this._redoStack.Clear();
     }

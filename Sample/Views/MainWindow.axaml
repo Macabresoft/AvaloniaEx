@@ -117,7 +117,21 @@
                                                           SelectedValue="{Binding SelectedFakeFlagsEnumValue}" />
                             </StackPanel>
 
-                        </avaloniaEx:GroupBox>                        <avaloniaEx:GroupBox Header="Lorem">
+                        </avaloniaEx:GroupBox>
+                        <avaloniaEx:GroupBox Header="Undo Service">
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Stretch">
+                                <Button Content="Undo (Ctrl + Z)"
+                                        IsEnabled="{Binding CanUndo}"
+                                        Command="{Binding ToggleUndoCommand}"
+                                        HotKey="Ctrl + Z" />
+                                <Button Content="Redo (Ctrl + Y)"
+                                        IsEnabled="{Binding !CanUndo}"
+                                        Command="{Binding ToggleUndoCommand}"
+                                        HotKey="Ctrl + Y" />
+                            </StackPanel>
+                        </avaloniaEx:GroupBox>
+                        <avaloniaEx:GroupBox Header="Lorem">
                             <TextBlock Text="{Binding LoremIpsum}"
                                        TextWrapping="Wrap" />
                         </avaloniaEx:GroupBox>
@@ -155,7 +169,7 @@
                                       ItemsSource="{Binding Children}">
                         <avaloniaEx:EditableSelectableItem Icon="{StaticResource DirectoryIcon}"
                                                            IconForeground="{StaticResource YellowBrush}"
-                                                           Text="{Binding Name}"
+                                                           Text="{Binding Converter={x:Static avaloniaEx:DisplayNameConverter.Instance}}"
                                                            IsEditable="False" />
 
                     </TreeDataTemplate>
@@ -163,7 +177,7 @@
                     <TreeDataTemplate DataType="{x:Type models:FakeFile}">
                         <avaloniaEx:EditableSelectableItem Icon="{StaticResource FileIcon}"
                                                            IconForeground="{StaticResource WhiteBrush}"
-                                                           Text="{Binding Name}"
+                                                           Text="{Binding Converter={x:Static avaloniaEx:DisplayNameConverter.Instance}}"
                                                            IsEditable="False" />
 
                     </TreeDataTemplate>

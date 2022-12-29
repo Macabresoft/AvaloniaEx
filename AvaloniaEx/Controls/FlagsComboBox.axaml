@@ -4,10 +4,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="Macabresoft.AvaloniaEx.FlagsComboBox">
     <ComboBox Classes="Flags"
-              Items="{Binding $parent[local:FlagsComboBox].EnumType, Converter={x:Static local:EnumTypeToValuesConverter.Instance}}"
               SelectionChanged="SelectingItemsControl_OnSelectionChanged"
               PlaceholderText="{Binding $parent[local:FlagsComboBox].SelectedValue, Converter={x:Static avaloniaEx:DisplayNameConverter.Instance}}"
               ToolTip.Tip="{Binding $parent[local:FlagsComboBox].SelectedValue}">
+        <ComboBox.Items>
+            <MultiBinding Converter="{x:Static local:EnumTypeToValuesWithOverrideConverter.Instance}">
+                <Binding Path="$parent[local:FlagsComboBox].EnumType" />
+                <Binding Path="$parent[local:FlagsComboBox].Items" />
+            </MultiBinding>
+        </ComboBox.Items>
         <ComboBox.Styles>
             <Style Selector="ComboBoxItem">
                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />

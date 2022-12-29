@@ -111,12 +111,16 @@
                             </WrapPanel>
                         </avaloniaEx:GroupBox>
                         <avaloniaEx:GroupBox Header="Controls">
-                            <StackPanel Orientation="Vertical"
-                                        HorizontalAlignment="Stretch">
-                                <avaloniaEx:FlagsComboBox EnumType="{x:Type models:FakeFlagsEnum}"
+                            <Grid ColumnDefinitions="*, *">
+                                <avaloniaEx:FlagsComboBox Grid.Column="0"
+                                                          EnumType="{x:Type models:FakeFlagsEnum}"
                                                           SelectedValue="{Binding SelectedFakeFlagsEnumValue}" />
-                            </StackPanel>
-
+                                
+                                <avaloniaEx:FlagsComboBox Grid.Column="1"
+                                                          EnumType="{x:Type models:FakeFlagsEnum}"
+                                                          Items="{Binding LimitedFlagsEnum}"
+                                                          SelectedValue="{Binding SelectedFakeFlagsEnumValue}" />
+                            </Grid>
                         </avaloniaEx:GroupBox>
                         <avaloniaEx:GroupBox Header="Undo Service">
                             <StackPanel Orientation="Horizontal"

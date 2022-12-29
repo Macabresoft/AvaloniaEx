@@ -1,6 +1,7 @@
 ﻿namespace Macabresoft.AvaloniaEx;
 
 using System;
+using System.Collections;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
@@ -11,6 +12,11 @@ public class FlagsComboBox : UserControl {
     public static readonly StyledProperty<Type> EnumTypeProperty =
         AvaloniaProperty.Register<FlagsComboBox, Type>(nameof(EnumType));
 
+    public static readonly DirectProperty<FlagsComboBox, IEnumerable> ItemsProperty =
+        ItemsControl.ItemsProperty.AddOwner<FlagsComboBox>(
+            o => o.Items,
+            (o, v) => o.Items = v);
+
     public static readonly StyledProperty<object> SelectedValueProperty =
         AvaloniaProperty.Register<FlagsComboBox, object>(nameof(SelectedValue));
 
@@ -18,6 +24,8 @@ public class FlagsComboBox : UserControl {
         AvaloniaProperty.RegisterDirect<FlagsComboBox, ICommand>(
             nameof(ToggleValueCommand),
             editor => editor.ToggleValueCommand);
+
+    private IEnumerable _items;
 
     public FlagsComboBox() {
         this.ToggleValueCommand = ReactiveCommand.Create<object>(this.ToggleValue);
@@ -27,6 +35,11 @@ public class FlagsComboBox : UserControl {
     public Type EnumType {
         get => this.GetValue(EnumTypeProperty);
         set => this.SetValue(EnumTypeProperty, value);
+    }
+
+    public IEnumerable Items {
+        get => this._items;
+        set => this.SetAndRaise(ItemsProperty, ref this._items, value);
     }
 
     public object SelectedValue {

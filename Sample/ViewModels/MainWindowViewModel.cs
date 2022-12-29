@@ -41,7 +41,9 @@ public class MainWindowViewModel : ReactiveObject {
             }
         }
     }
-    
+
+    public IReadOnlyCollection<FakeFlagsEnum> LimitedFlagsEnum { get; } = new[] { FakeFlagsEnum.First, FakeFlagsEnum.Second, FakeFlagsEnum.Fourth, FakeFlagsEnum.Eighth };
+
     public ICommand ToggleUndoCommand { get; }
 
     public IReadOnlyCollection<string> List { get; }

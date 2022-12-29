@@ -6,7 +6,7 @@ using System.Reflection;
 using Macabresoft.Core;
 
 /// <summary>
-/// A display name handler for <see cref="Enum"/>.
+/// A display name handler for <see cref="Enum" />.
 /// </summary>
 public class EnumDisplayNameHandler : IDisplayNameHandler {
     /// <inheritdoc />

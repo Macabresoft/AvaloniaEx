@@ -5,6 +5,7 @@ using System.Collections;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Data;
 using Avalonia.Markup.Xaml;
 using ReactiveUI;
 
@@ -18,7 +19,7 @@ public class FlagsComboBox : UserControl {
             (o, v) => o.Items = v);
 
     public static readonly StyledProperty<object> SelectedValueProperty =
-        AvaloniaProperty.Register<FlagsComboBox, object>(nameof(SelectedValue));
+        AvaloniaProperty.Register<FlagsComboBox, object>(nameof(SelectedValue), defaultBindingMode: BindingMode.TwoWay);
 
     public static readonly DirectProperty<FlagsComboBox, ICommand> ToggleValueCommandProperty =
         AvaloniaProperty.RegisterDirect<FlagsComboBox, ICommand>(

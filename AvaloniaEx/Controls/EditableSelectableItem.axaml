@@ -1,21 +1,28 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Macabresoft.AvaloniaEx"
-             x:Class="Macabresoft.AvaloniaEx.EditableSelectableItem">
-    <Grid ColumnDefinitions="Auto, *"
-          HorizontalAlignment="Stretch">
+             x:Class="Macabresoft.AvaloniaEx.EditableSelectableItem"
+             HorizontalAlignment="Stretch">
+    <Grid ColumnDefinitions="Auto, *">
         <local:Icon Grid.Column="0"
                     Content="{Binding  $parent[local:EditableSelectableItem].Icon}"
                     IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
                     Margin="{StaticResource StandardMarginRight}"
                     Foreground="{Binding $parent[local:EditableSelectableItem].IconForeground}" />
-
+        
+        <Border Grid.Column="1"
+                Background="Transparent"
+                MinHeight="{StaticResource TextControlThemeMinHeight}"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                DoubleTapped="Item_OnDoubleTapped" />
+        
         <TextBlock Grid.Column="1"
                    Text="{Binding $parent[local:EditableSelectableItem].Text}"
                    IsVisible="{Binding !#_editableTextBox.IsVisible}"
                    TextWrapping="NoWrap"
                    TextTrimming="CharacterEllipsis"
-                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Center"
                    Background="Transparent"
                    DoubleTapped="Item_OnDoubleTapped" />
 

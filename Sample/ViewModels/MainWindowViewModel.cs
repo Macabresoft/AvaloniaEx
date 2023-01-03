@@ -12,16 +12,29 @@ public class MainWindowViewModel : ReactiveObject {
     private readonly IUndoService _undoService;
     private bool _canUndo = true;
     private FakeFlagsEnum _selectedFakeFlagsEnumValue;
+    private FileSystemObject? _selectedTreeItem;
 
     public MainWindowViewModel() : this(new UndoService()) {
     }
     
     public MainWindowViewModel(IUndoService undoService) {
         this._undoService = undoService;
+        this.RenameCommand = ReactiveCommand.Create<string>(this.RenameChild);
         this.ToggleUndoCommand = ReactiveCommand.Create(() => this.CanUndo = !this.CanUndo);
         this.ViewSourceCommand = ReactiveCommand.Create(this.ViewSource);
         this.List = this.CreateList();
         this.Root = new[] { this.CreateFakeDirectory(2, 0, "Root") };
+    }
+
+    public FileSystemObject? SelectedTreeItem {
+        get => this._selectedTreeItem;
+        set => this.RaiseAndSetIfChanged(ref this._selectedTreeItem, value);
+    }
+    
+    private void RenameChild(string updatedName) {
+        if (this.SelectedTreeItem != null) {
+            this.SelectedTreeItem.Name = updatedName;
+        }
     }
 
     public bool CanUndo {
@@ -43,6 +56,8 @@ public class MainWindowViewModel : ReactiveObject {
     }
 
     public IReadOnlyCollection<FakeFlagsEnum> LimitedFlagsEnum { get; } = new[] { FakeFlagsEnum.First, FakeFlagsEnum.Second, FakeFlagsEnum.Fourth, FakeFlagsEnum.Eighth };
+    
+    public ICommand RenameCommand { get; }
 
     public ICommand ToggleUndoCommand { get; }
 

@@ -4,6 +4,7 @@ using System.IO;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Data;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
@@ -95,6 +96,7 @@ public class EditableSelectableItem : UserControl {
     private void CommitNewText(string newText) {
         if (this.TextCommittedCommand != null && this.TextCommittedCommand.CanExecute(newText)) {
             this.TextCommittedCommand.Execute(newText);
+            this.Text = newText;
             this.IsEditing = false;
         }
     }

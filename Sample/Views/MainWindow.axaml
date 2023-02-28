@@ -108,6 +108,10 @@
                                                  ToolTip.Tip="MouseClickIcon" />
                                 <avaloniaEx:Icon Content="{StaticResource KeyboardIcon}"
                                                  ToolTip.Tip="KeyboardIcon" />
+                                <avaloniaEx:Icon Content="{StaticResource ExpandIcon}"
+                                                 ToolTip.Tip="ExpandIcon" />
+                                <avaloniaEx:Icon Content="{StaticResource CollapseIcon}"
+                                                 ToolTip.Tip="CollapseIcon" />
                             </WrapPanel>
                         </avaloniaEx:GroupBox>
                         <avaloniaEx:GroupBox Header="Controls">

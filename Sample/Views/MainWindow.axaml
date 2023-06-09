@@ -112,6 +112,10 @@
                                                  ToolTip.Tip="ExpandIcon" />
                                 <avaloniaEx:Icon Content="{StaticResource CollapseIcon}"
                                                  ToolTip.Tip="CollapseIcon" />
+                                <avaloniaEx:Icon Content="{StaticResource GridIcon}"
+                                                 ToolTip.Tip="GridIcon"/>
+                                <avaloniaEx:Icon Content="{StaticResource CloneIcon}"
+                                                 ToolTip.Tip="CloneIcon"/>
                             </WrapPanel>
                         </avaloniaEx:GroupBox>
                         <avaloniaEx:GroupBox Header="Controls">

@@ -1,4 +1,4 @@
-﻿#nullable enable
+﻿/*#nullable enable
 namespace Macabresoft.AvaloniaEx;
 
 using System;
@@ -21,7 +21,7 @@ public enum ThemeAccent {
 /// <summary>
 /// A Macabresoft theme.
 /// </summary>
-public class MacabreTheme : AvaloniaObject, IStyle, IResourceProvider {
+public class MacabreTheme : Style, IStyle, IResourceProvider {
     /// <summary>
     /// The accent property.
     /// </summary>
@@ -179,4 +179,4 @@ public class MacabreTheme : AvaloniaObject, IStyle, IResourceProvider {
             provider.RemoveOwner(owner);
         }
     }
-}
+}*/

@@ -126,7 +126,7 @@
                                 
                                 <avaloniaEx:FlagsComboBox Grid.Column="1"
                                                           EnumType="{x:Type models:FakeFlagsEnum}"
-                                                          Items="{Binding LimitedFlagsEnum}"
+                                                          ItemsSource="{Binding LimitedFlagsEnum}"
                                                           SelectedValue="{Binding SelectedFakeFlagsEnumValue}" />
                             </Grid>
                         </avaloniaEx:GroupBox>
@@ -170,7 +170,7 @@
                 Grid.Column="2"
                 Classes="Card"
                 Margin="{StaticResource DoubleMarginAll}">
-            <TreeView Items="{Binding Root}"
+            <TreeView ItemsSource="{Binding Root}"
                       SelectedItem="{Binding SelectedTreeItem}">
                 <TreeView.Styles>
                     <Style Selector="TreeViewItem">
@@ -229,10 +229,10 @@
                         Grid.ColumnSpan="2"
                         Classes="HorizontalSeparator"/>
                 
-                <avaloniaEx:AlternatingListBox Grid.Column="0"
-                                               Grid.Row="2"
-                                               Grid.ColumnSpan="2"
-                                               Items="{Binding List}" />
+                <ListBox Grid.Column="0"
+                         Grid.Row="2"
+                         Grid.ColumnSpan="2"
+                         ItemsSource="{Binding List}" />
             </Grid>
         </Border>
     </Grid>

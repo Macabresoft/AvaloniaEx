@@ -7,12 +7,12 @@
               SelectionChanged="SelectingItemsControl_OnSelectionChanged"
               PlaceholderText="{Binding $parent[local:FlagsComboBox].SelectedValue, Converter={x:Static avaloniaEx:DisplayNameConverter.Instance}}"
               ToolTip.Tip="{Binding $parent[local:FlagsComboBox].SelectedValue}">
-        <ComboBox.Items>
+        <ComboBox.ItemsSource>
             <MultiBinding Converter="{x:Static local:EnumTypeToValuesWithOverrideConverter.Instance}">
                 <Binding Path="$parent[local:FlagsComboBox].EnumType" />
-                <Binding Path="$parent[local:FlagsComboBox].Items" />
+                <Binding Path="$parent[local:FlagsComboBox].ItemsSource" />
             </MultiBinding>
-        </ComboBox.Items>
+        </ComboBox.ItemsSource>
         <ComboBox.Styles>
             <Style Selector="ComboBoxItem">
                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />

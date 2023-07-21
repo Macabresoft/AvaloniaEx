@@ -9,7 +9,7 @@ using Avalonia.Interactivity;
 using Avalonia.Media;
 using Avalonia.Platform;
 
-public class BaseDialog : Window, IWindow {
+public partial class BaseDialog : Window, IWindow {
     public static readonly StyledProperty<ICommand> CloseCommandProperty =
         AvaloniaProperty.Register<BaseDialog, ICommand>(nameof(CloseCommand), defaultBindingMode: BindingMode.OneWay, defaultValue: WindowHelper.CloseDialogCommand);
 
@@ -27,6 +27,10 @@ public class BaseDialog : Window, IWindow {
 
     public static readonly StyledProperty<StreamGeometry> VectorIconProperty =
         AvaloniaProperty.Register<BaseDialog, StreamGeometry>(nameof(VectorIcon), defaultBindingMode: BindingMode.OneWay);
+
+    public BaseDialog() {
+        this.InitializeComponent();
+    }
 
     public ICommand CloseCommand {
         get => this.GetValue(CloseCommandProperty);
@@ -68,7 +72,7 @@ public class BaseDialog : Window, IWindow {
         this.ResetWindowChrome();
     }
 
-    protected override void OnPropertyChanged<T>(AvaloniaPropertyChangedEventArgs<T> change) {
+    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change) {
         base.OnPropertyChanged(change);
 
         if (change.Property.Name is nameof(this.WindowState) or nameof(this.ClientSize)) {
@@ -90,7 +94,7 @@ public class BaseDialog : Window, IWindow {
     }
 
     // ReSharper disable once UnusedParameter.Local
-    private void TitleBar_OnDoubleTapped(object sender, RoutedEventArgs e) {
+    private void TitleBar_OnDoubleTapped(object sender, TappedEventArgs e) {
         if (this.CanResize) {
             WindowHelper.ToggleWindowStateCommand.Execute(this);
         }

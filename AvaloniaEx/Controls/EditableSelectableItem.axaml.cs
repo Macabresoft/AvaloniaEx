@@ -1,5 +1,6 @@
 namespace Macabresoft.AvaloniaEx;
 
+using System;
 using System.IO;
 using System.Windows.Input;
 using Avalonia;
@@ -12,7 +13,7 @@ using Avalonia.Media;
 using Avalonia.Threading;
 using ReactiveUI;
 
-public class EditableSelectableItem : UserControl {
+public partial class EditableSelectableItem : UserControl, IObserver<AvaloniaPropertyChangedEventArgs<string>> {
     public static readonly DirectProperty<EditableSelectableItem, ICommand> EditCommandProperty =
         AvaloniaProperty.RegisterDirect<EditableSelectableItem, ICommand>(
             nameof(EditCommand),
@@ -40,11 +41,13 @@ public class EditableSelectableItem : UserControl {
         AvaloniaProperty.Register<EditableSelectableItem, ICommand>(nameof(TextCommittedCommand));
 
     public static readonly StyledProperty<string> TextProperty =
-        AvaloniaProperty.Register<EditableSelectableItem, string>(nameof(Text), string.Empty, notifying: OnTextChanging);
+        AvaloniaProperty.Register<EditableSelectableItem, string>(nameof(Text), string.Empty);
 
     private bool _isEditing;
 
     public EditableSelectableItem() {
+        TextProperty.Changed.Subscribe(this);
+
         this.EditCommand = ReactiveCommand.Create(
             () => Dispatcher.UIThread.Post(this.StartEdit),
             this.WhenAnyValue(x => x.IsEditable));
@@ -120,24 +123,14 @@ public class EditableSelectableItem : UserControl {
         return result;
     }
 
-    private void InitializeComponent() {
-        AvaloniaXamlLoader.Load(this);
-    }
-
-    private void Item_OnDoubleTapped(object sender, RoutedEventArgs e) {
-        var item = this.FindAncestor<ISelectable>() as IControl;
+    private void Item_OnDoubleTapped(object sender, TappedEventArgs e) {
+        var item = this.FindAncestor<ISelectable>() as Control;
         this.StartEdit();
         e.Handled |= this.IsEditing;
     }
 
-    private static void OnTextChanging(IAvaloniaObject control, bool isBeforeChange) {
-        if (!isBeforeChange && control is EditableSelectableItem editableControl && editableControl.TryGetEditableTextBox(out var textBox)) {
-            textBox.Text = editableControl.GetEditableText(editableControl.Text);
-        }
-    }
-
     private void StartEdit() {
-        if (this.FindAncestor<ISelectable>() is IControl item &&
+        if (this.FindAncestor<ISelectable>() is Control item &&
             this.IsEditable &&
             CanEditItem(item) &&
             this.TryGetEditableTextBox(out var textBox)) {
@@ -151,12 +144,14 @@ public class EditableSelectableItem : UserControl {
             if (this.TryGetEditableTextBox(out var textBox)) {
                 var newText = this.IsFileName ? $"{textBox.Text}{Path.GetExtension(this.Text)}" : textBox.Text;
                 this.CommitNewText(newText);
+                e.Handled = true;
             }
         }
         else if (e.Key == Key.Escape) {
             if (this.TryGetEditableTextBox(out var textBox)) {
                 textBox.Text = this.GetEditableText(this.Text);
                 this.IsEditing = false;
+                e.Handled = true;
             }
         }
     }
@@ -171,5 +166,17 @@ public class EditableSelectableItem : UserControl {
     private bool TryGetEditableTextBox(out TextBox textBox) {
         textBox = this.FindControl<TextBox>("_editableTextBox");
         return textBox != null;
+    }
+
+    public void OnCompleted() {
+    }
+
+    public void OnError(Exception error) {
+    }
+
+    public void OnNext(AvaloniaPropertyChangedEventArgs<string> value) {
+        if (this.TryGetEditableTextBox(out var textBox)) {
+            textBox.Text = this.GetEditableText(this.Text);
+        }
     }
 }

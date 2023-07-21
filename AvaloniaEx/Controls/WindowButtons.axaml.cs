@@ -6,7 +6,7 @@ using Avalonia.Controls;
 using Avalonia.Data;
 using Avalonia.Markup.Xaml;
 
-public class WindowButtons : UserControl {
+public partial class WindowButtons : UserControl {
     public static readonly StyledProperty<ICommand> CloseCommandProperty =
         AvaloniaProperty.Register<WindowButtons, ICommand>(
             nameof(CloseCommand),
@@ -49,9 +49,5 @@ public class WindowButtons : UserControl {
     public IWindow Window {
         get => this.GetValue(WindowProperty);
         set => this.SetValue(WindowProperty, value);
-    }
-
-    private void InitializeComponent() {
-        AvaloniaXamlLoader.Load(this);
     }
 }

@@ -26,7 +26,7 @@
                                     PointerPressed="TitleBar_OnPointerPressed"
                                     DoubleTapped="TitleBar_OnDoubleTapped"
                                     Margin="0"
-                                    Background="{StaticResource SystemControlDisabledChromeDisabledHighBrush}"
+                                    Background="{DynamicResource SystemControlDisabledChromeDisabledHighBrush}"
                                     Padding="{StaticResource StandardMarginAll}"
                                     BoxShadow="{StaticResource DefaultBoxShadow}"
                                     ZIndex="-1" />
@@ -68,8 +68,6 @@
                                                  MinimizeCommand="{x:Static local:WindowHelper.MinimizeCommand}"
                                                  ToggleWindowStateCommand="{x:Static local:WindowHelper.ToggleWindowStateCommand}"
                                                  Window="{TemplateBinding}" />
-
-
                         </Grid>
 
                         <ContentPresenter Grid.Row="1"

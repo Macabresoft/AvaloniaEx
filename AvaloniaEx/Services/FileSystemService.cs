@@ -3,8 +3,7 @@ namespace Macabresoft.AvaloniaEx;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using Avalonia;
-using Avalonia.Platform;
+using System.Runtime.InteropServices;
 
 /// <summary>
 /// Interface for a service which wraps basic file system operations.
@@ -192,21 +191,23 @@ public class FileSystemService : IFileSystemService {
     public void OpenDirectoryInFileExplorer(string directoryPath) {
         if (this.DoesDirectoryExist(directoryPath)) {
             try {
-                if (AvaloniaLocator.Current.GetService<IRuntimePlatform>()?.GetRuntimeInfo() is { } runtimeInfo) {
-                    var program = runtimeInfo.OperatingSystem switch {
-                        OperatingSystemType.WinNT => "explorer.exe",
-                        OperatingSystemType.OSX => "open",
-                        OperatingSystemType.Linux => "xdg-open",
-                        _ => string.Empty
+                var program = string.Empty;
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
+                    program = "explorer.exe";
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
+                    program = "xdg-open";
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) {
+                    program = "open";
+                }
+
+                if (!string.IsNullOrEmpty(program)) {
+                    var startInfo = new ProcessStartInfo(program) {
+                        Arguments = $"\"{directoryPath}\""
                     };
 
-                    if (!string.IsNullOrEmpty(program)) {
-                        var startInfo = new ProcessStartInfo(program) {
-                            Arguments = $"\"{directoryPath}\""
-                        };
-
-                        Process.Start(startInfo);
-                    }
+                    Process.Start(startInfo);
                 }
             }
             catch {

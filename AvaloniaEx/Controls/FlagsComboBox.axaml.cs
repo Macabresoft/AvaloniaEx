@@ -6,17 +6,17 @@ using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Data;
-using Avalonia.Markup.Xaml;
 using ReactiveUI;
 
-public class FlagsComboBox : UserControl {
+public partial class FlagsComboBox : UserControl {
     public static readonly StyledProperty<Type> EnumTypeProperty =
         AvaloniaProperty.Register<FlagsComboBox, Type>(nameof(EnumType));
 
-    public static readonly DirectProperty<FlagsComboBox, IEnumerable> ItemsProperty =
-        ItemsControl.ItemsProperty.AddOwner<FlagsComboBox>(
-            o => o.Items,
-            (o, v) => o.Items = v);
+    public static readonly DirectProperty<FlagsComboBox, IEnumerable> ItemsSourceProperty =
+        AvaloniaProperty.RegisterDirect<FlagsComboBox, IEnumerable>(
+            nameof(ItemsSource),
+            o => o.ItemsSource,
+            (o, v) => o.ItemsSource = v);
 
     public static readonly StyledProperty<object> SelectedValueProperty =
         AvaloniaProperty.Register<FlagsComboBox, object>(nameof(SelectedValue), defaultBindingMode: BindingMode.TwoWay);
@@ -26,7 +26,7 @@ public class FlagsComboBox : UserControl {
             nameof(ToggleValueCommand),
             editor => editor.ToggleValueCommand);
 
-    private IEnumerable _items;
+    private IEnumerable _itemsSource;
 
     public FlagsComboBox() {
         this.ToggleValueCommand = ReactiveCommand.Create<object>(this.ToggleValue);
@@ -38,9 +38,9 @@ public class FlagsComboBox : UserControl {
         set => this.SetValue(EnumTypeProperty, value);
     }
 
-    public IEnumerable Items {
-        get => this._items;
-        set => this.SetAndRaise(ItemsProperty, ref this._items, value);
+    public IEnumerable ItemsSource {
+        get => this._itemsSource;
+        set => this.SetAndRaise(ItemsSourceProperty, ref this._itemsSource, value);
     }
 
     public object SelectedValue {
@@ -49,10 +49,6 @@ public class FlagsComboBox : UserControl {
     }
 
     public ICommand ToggleValueCommand { get; }
-
-    private void InitializeComponent() {
-        AvaloniaXamlLoader.Load(this);
-    }
 
     private void SelectingItemsControl_OnSelectionChanged(object sender, SelectionChangedEventArgs e) {
         if (sender is ComboBox comboBox) {

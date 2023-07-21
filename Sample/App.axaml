@@ -1,13 +1,15 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:Macabresoft.AvaloniaEx.Sample"
-             xmlns:avaloniaEx="clr-namespace:Macabresoft.AvaloniaEx;assembly=Macabresoft.AvaloniaEx"
-             x:Class="Macabresoft.AvaloniaEx.Sample.App">
+             x:Class="Macabresoft.AvaloniaEx.Sample.App"
+             RequestedThemeVariant="Dark">
     <Application.DataTemplates>
         <local:ViewLocator/>
     </Application.DataTemplates>
 
     <Application.Styles>
-        <avaloniaEx:MacabreTheme Accent="Green" />
+        <FluentTheme />
+        <StyleInclude Source="avares://Macabresoft.AvaloniaEx/Theme/Base.axaml" />
+        <StyleInclude Source="avares://Macabresoft.AvaloniaEx/Theme/Accents/Green.axaml" />
     </Application.Styles>
 </Application>

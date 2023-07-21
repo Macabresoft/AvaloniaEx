@@ -6,7 +6,7 @@ using Avalonia.Markup.Xaml;
 using ReactiveUI;
 using Unity;
 
-public class YesNoCancelDialog : BaseDialog {
+public partial class YesNoCancelDialog : BaseDialog {
     public static readonly StyledProperty<bool> AllowCancelProperty =
         AvaloniaProperty.Register<YesNoCancelDialog, bool>(nameof(AllowCancel), true);
 
@@ -14,7 +14,7 @@ public class YesNoCancelDialog : BaseDialog {
         AvaloniaProperty.Register<YesNoCancelDialog, string>(nameof(Question));
 
     [InjectionConstructor]
-    public YesNoCancelDialog() {
+    public YesNoCancelDialog() : base() {
         this.CancelCommand = ReactiveCommand.Create<IWindow>(x => this.Close(YesNoCancelResult.Cancel));
         this.NoCommand = ReactiveCommand.Create<IWindow>(x => this.Close(YesNoCancelResult.No));
         this.YesCommand = ReactiveCommand.Create<IWindow>(x => this.Close(YesNoCancelResult.Yes));
@@ -36,9 +36,5 @@ public class YesNoCancelDialog : BaseDialog {
     public string Question {
         get => this.GetValue(QuestionProperty);
         set => this.SetValue(QuestionProperty, value);
-    }
-
-    private void InitializeComponent() {
-        AvaloniaXamlLoader.Load(this);
     }
 }

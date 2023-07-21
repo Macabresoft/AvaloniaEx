@@ -1,20 +1,15 @@
 namespace Macabresoft.AvaloniaEx.Sample.Views;
 
-using Avalonia.Markup.Xaml;
 using Macabresoft.AvaloniaEx.Sample.ViewModels;
 using Unity;
 
-public class MainWindow : BaseDialog {
+public partial class MainWindow : BaseDialog {
     public MainWindow() {
     }
-    
+
     [InjectionConstructor]
-    public MainWindow(MainWindowViewModel viewModel) {
+    public MainWindow(MainWindowViewModel viewModel) : base() {
         this.DataContext = viewModel;
         this.InitializeComponent();
-    }
-
-    private void InitializeComponent() {
-        AvaloniaXamlLoader.Load(this);
     }
 }

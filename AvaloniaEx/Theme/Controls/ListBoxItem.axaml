@@ -1,11 +1,11 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style Selector="ListBoxItem">
-        <Setter Property="Background" Value="{StaticResource TreeViewItemBackground}" />
-        <Setter Property="BorderBrush" Value="{StaticResource TreeViewItemBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{StaticResource TreeViewItemBorderThemeThickness}" />
-        <Setter Property="Foreground" Value="{StaticResource TreeViewItemForeground}" />
-        <Setter Property="MinHeight" Value="{StaticResource TreeViewItemMinHeight}" />
+        <Setter Property="Background" Value="{DynamicResource TreeViewItemBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TreeViewItemBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TreeViewItemBorderThemeThickness}" />
+        <Setter Property="Foreground" Value="{DynamicResource TreeViewItemForeground}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TreeViewItemMinHeight}" />
         <Setter Property="Padding" Value="{StaticResource StandardMarginAll}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -17,16 +17,16 @@
 
     <!--  Disabled State  -->
     <Style Selector="ListBoxItem:disabled /template/ ContentPresenter#PART_ContentPresenter">
-        <Setter Property="Background" Value="{StaticResource TreeViewItemBackgroundDisabled}" />
-        <Setter Property="BorderBrush" Value="{StaticResource TreeViewItemBorderBrushDisabled}" />
-        <Setter Property="TextBlock.Foreground" Value="{StaticResource TreeViewItemForegroundDisabled}" />
+        <Setter Property="Background" Value="{DynamicResource TreeViewItemBackgroundDisabled}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TreeViewItemBorderBrushDisabled}" />
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource TreeViewItemForegroundDisabled}" />
     </Style>
 
     <!--  PointerOver State  -->
     <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-        <Setter Property="Background" Value="{StaticResource TreeViewItemBackgroundPointerOver}" />
-        <Setter Property="BorderBrush" Value="{StaticResource TreeViewItemBorderBrushPointerOver}" />
-        <Setter Property="TextBlock.Foreground" Value="{StaticResource TreeViewItemForegroundPointerOver}" />
+        <Setter Property="Background" Value="{DynamicResource TreeViewItemBackgroundPointerOver}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TreeViewItemBorderBrushPointerOver}" />
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource TreeViewItemForegroundPointerOver}" />
     </Style>
 
     <!--  Pressed State  -->

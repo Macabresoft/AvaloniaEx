@@ -9,7 +9,7 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 
-public class ColorSlider : UserControl {
+public partial class ColorSlider : UserControl, IObserver<AvaloniaPropertyChangedEventArgs<byte>> {
     public static readonly DirectProperty<ColorSlider, byte> ValueDisplayProperty =
         AvaloniaProperty.RegisterDirect<ColorSlider, byte>(
             nameof(ValueDisplay),
@@ -17,12 +17,16 @@ public class ColorSlider : UserControl {
             (editor, value) => editor.ValueDisplay = value);
 
     public static readonly StyledProperty<byte> ValueProperty =
-        AvaloniaProperty.Register<ColorSlider, byte>(nameof(Value), notifying: OnValueChanging, defaultBindingMode: BindingMode.TwoWay);
+        AvaloniaProperty.Register<ColorSlider, byte>(nameof(Value));
 
     private IDisposable _pointerReleaseDispose;
     private byte _valueDisplay;
 
+    static ColorSlider() {
+    }
+
     public ColorSlider() {
+        ValueProperty.Changed.Subscribe(this);
         this.InitializeComponent();
     }
 
@@ -46,19 +50,27 @@ public class ColorSlider : UserControl {
         }
     }
 
-    private void InitializeComponent() {
-        AvaloniaXamlLoader.Load(this);
-    }
-
     private void OnPointerReleased(object sender, PointerReleasedEventArgs e) {
         if (this.Value != this.ValueDisplay) {
             this.Value = this.ValueDisplay;
         }
     }
 
-    private static void OnValueChanging(IAvaloniaObject control, bool isBeforeChange) {
+    private static void OnValueChanging(AvaloniaObject control, bool isBeforeChange) {
         if (!isBeforeChange && control is ColorSlider slider && slider.Value != slider.ValueDisplay) {
             slider.ValueDisplay = slider.Value;
+        }
+    }
+
+    public void OnCompleted() {
+    }
+
+    public void OnError(Exception error) {
+    }
+
+    public void OnNext(AvaloniaPropertyChangedEventArgs<byte> value) {
+        if (value.NewValue.HasValue && value.NewValue.Value != this.ValueDisplay) {
+            this.ValueDisplay = value.NewValue.Value;
         }
     }
 }

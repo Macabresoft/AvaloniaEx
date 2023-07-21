@@ -1,15 +1,15 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:avaloniaEx="clr-namespace:Macabresoft.AvaloniaEx">
-    <Style Selector="avaloniaEx|AlternatingListBox">
-        <Setter Property="TextBlock.Foreground" Value="{StaticResource SystemControlForegroundBaseHighBrush}" />
+    <!--<Style Selector="avaloniaEx|AlternatingListBox">
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="AlternateBackground" Value="{StaticResource AlternateListBoxItemBackgroundColor}" />
-        <Setter Property="BorderBrush" Value="{StaticResource SystemControlForegroundBaseHighBrush}" />
-        <Setter Property="BorderThickness" Value="{StaticResource ListBoxBorderThemeThickness}" />
+        <Setter Property="AlternateBackground" Value="{DynamicResource AlternateListBoxItemBackgroundColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SystemControlForegroundBaseHighBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ListBoxBorderThemeThickness}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />        
-        <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}" />
+        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
         <Setter Property="Margin" Value="{StaticResource StandardMarginAll}" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -32,5 +32,5 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-    </Style>
+    </Style>-->
 </Styles>

@@ -9,7 +9,7 @@
         </Style>
 
         <Style Selector="Button.groupBoxButton">
-            <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonBackground}" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="BorderBrush" Value="Transparent" />
             <Setter Property="Margin" Value="{StaticResource StandardMarginVertical}" />
@@ -18,7 +18,7 @@
         </Style>
 
         <Style Selector="Button.groupBoxButton:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ThemeBorderMidBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPointerOver}" />
         </Style>
     </HeaderedContentControl.Styles>
     <HeaderedContentControl.Template>

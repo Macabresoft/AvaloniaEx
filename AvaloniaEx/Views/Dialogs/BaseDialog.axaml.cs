@@ -84,12 +84,10 @@ public partial class BaseDialog : Window, IWindow {
         if (this.WindowState is WindowState.Maximized or WindowState.FullScreen) {
             this.SystemDecorations = SystemDecorations.BorderOnly;
             this.ExtendClientAreaChromeHints = ExtendClientAreaChromeHints.Default;
-            this.ExtendClientAreaToDecorationsHint = false;
         }
         else {
             this.SystemDecorations = SystemDecorations.None;
             this.ExtendClientAreaChromeHints = ExtendClientAreaChromeHints.NoChrome;
-            this.ExtendClientAreaToDecorationsHint = true;
         }
     }
 

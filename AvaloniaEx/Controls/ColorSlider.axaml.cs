@@ -60,7 +60,7 @@ public partial class ColorSlider : UserControl, IObserver<AvaloniaPropertyChange
     }
 
     public void OnNext(AvaloniaPropertyChangedEventArgs<byte> value) {
-        if (value.NewValue.HasValue && value.NewValue.Value != this.ValueDisplay) {
+        if (value.Sender == this && value.NewValue.HasValue && value.NewValue.Value != this.ValueDisplay) {
             this.ValueDisplay = value.NewValue.Value;
         }
     }

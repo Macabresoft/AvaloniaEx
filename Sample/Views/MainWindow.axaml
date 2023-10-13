@@ -54,8 +54,8 @@
                         Minimum="0"
                         Maximum="1"
                         TickFrequency="0.1"
-                        Value="{Binding #_skull.Opacity}"/>
-                
+                        Value="{Binding #_skull.Opacity}" />
+
                 <Viewbox Grid.Row="1">
                     <avaloniaEx:Icon Name="_skull"
                                      Content="{StaticResource MacabresoftIcon}"
@@ -63,17 +63,30 @@
                                      Width="256"
                                      Height="256" />
                 </Viewbox>
-                
+
                 <Grid Grid.Row="2"
                       ColumnDefinitions="Auto, *"
-                            HorizontalAlignment="Stretch">
-                    <TextBox Grid.Column="0"
-                             Text="{Binding ColorValue, Mode=TwoWay}"
+                      RowDefinitions="Auto, Auto"
+                      HorizontalAlignment="Stretch">
+                    <TextBox Grid.Row="0"
+                             Grid.Column="0"
+                             Text="{Binding ColorValueA, Mode=TwoWay}"
                              Width="64" />
-                    
-                    <avaloniaEx:ColorSlider Grid.Column="1"
+
+                    <avaloniaEx:ColorSlider Grid.Row="0"
+                                            Grid.Column="1"
                                             HorizontalAlignment="Stretch"
-                                            Value="{Binding ColorValue}" />
+                                            Value="{Binding ColorValueA}" />
+
+                    <TextBox Grid.Row="1"
+                             Grid.Column="0"
+                             Text="{Binding ColorValueB, Mode=TwoWay}"
+                             Width="64" />
+
+                    <avaloniaEx:ColorSlider Grid.Row="1"
+                                            Grid.Column="1"
+                                            HorizontalAlignment="Stretch"
+                                            Value="{Binding ColorValueB}" />
                 </Grid>
 
                 <StackPanel Grid.Row="3"
@@ -111,7 +124,7 @@
 
                                     </Style>
                                 </WrapPanel.Styles>
-                                
+
                                 <avaloniaEx:Icon Content="{StaticResource MacabresoftIcon}"
                                                  ToolTip.Tip="MacabresoftIcon" />
                                 <avaloniaEx:Icon Content="{StaticResource GamePadIcon}"
@@ -125,9 +138,9 @@
                                 <avaloniaEx:Icon Content="{StaticResource CollapseIcon}"
                                                  ToolTip.Tip="CollapseIcon" />
                                 <avaloniaEx:Icon Content="{StaticResource GridIcon}"
-                                                 ToolTip.Tip="GridIcon"/>
+                                                 ToolTip.Tip="GridIcon" />
                                 <avaloniaEx:Icon Content="{StaticResource CloneIcon}"
-                                                 ToolTip.Tip="CloneIcon"/>
+                                                 ToolTip.Tip="CloneIcon" />
                             </WrapPanel>
                         </avaloniaEx:GroupBox>
                         <avaloniaEx:GroupBox Header="Controls">
@@ -135,7 +148,7 @@
                                 <avaloniaEx:FlagsComboBox Grid.Column="0"
                                                           EnumType="{x:Type models:FakeFlagsEnum}"
                                                           SelectedValue="{Binding SelectedFakeFlagsEnumValue}" />
-                                
+
                                 <avaloniaEx:FlagsComboBox Grid.Column="1"
                                                           EnumType="{x:Type models:FakeFlagsEnum}"
                                                           ItemsSource="{Binding LimitedFlagsEnum}"
@@ -210,12 +223,12 @@
                 </TreeView.DataTemplates>
             </TreeView>
         </Border>
-        
+
         <GridSplitter Grid.Row="0"
                       Grid.RowSpan="3"
                       Grid.Column="3"
                       Classes="CardSplitter" />
-        
+
         <Border Grid.Row="0"
                 Grid.RowSpan="3"
                 Grid.Column="4"
@@ -229,18 +242,18 @@
                            Classes="Label"
                            Text="Name"
                            Width="40"
-                           Foreground="{StaticResource YellowBrush}"/>
-                
+                           Foreground="{StaticResource YellowBrush}" />
+
                 <TextBox Grid.Row="0"
                          Grid.Column="1"
                          Classes="Line"
                          HorizontalAlignment="Stretch" />
-                
+
                 <Border Grid.Column="0"
                         Grid.Row="1"
                         Grid.ColumnSpan="2"
-                        Classes="HorizontalSeparator"/>
-                
+                        Classes="HorizontalSeparator" />
+
                 <ListBox Grid.Column="0"
                          Grid.Row="2"
                          Grid.ColumnSpan="2"

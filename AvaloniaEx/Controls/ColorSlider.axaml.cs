@@ -7,7 +7,6 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 
 public partial class ColorSlider : UserControl, IObserver<AvaloniaPropertyChangedEventArgs<byte>> {
     public static readonly DirectProperty<ColorSlider, byte> ValueDisplayProperty =
@@ -37,6 +36,18 @@ public partial class ColorSlider : UserControl, IObserver<AvaloniaPropertyChange
         set => this.SetAndRaise(ValueDisplayProperty, ref this._valueDisplay, value);
     }
 
+    public void OnCompleted() {
+    }
+
+    public void OnError(Exception error) {
+    }
+
+    public void OnNext(AvaloniaPropertyChangedEventArgs<byte> value) {
+        if (value.Sender == this && value.NewValue.HasValue && value.NewValue.Value != this.ValueDisplay) {
+            this.ValueDisplay = value.NewValue.Value;
+        }
+    }
+
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e) {
         base.OnApplyTemplate(e);
 
@@ -53,15 +64,9 @@ public partial class ColorSlider : UserControl, IObserver<AvaloniaPropertyChange
         }
     }
 
-    public void OnCompleted() {
-    }
-
-    public void OnError(Exception error) {
-    }
-
-    public void OnNext(AvaloniaPropertyChangedEventArgs<byte> value) {
-        if (value.Sender == this && value.NewValue.HasValue && value.NewValue.Value != this.ValueDisplay) {
-            this.ValueDisplay = value.NewValue.Value;
+    private void Slider_OnKeyUp(object sender, KeyEventArgs e) {
+        if (this.Value != this.ValueDisplay && sender is Slider slider && this.Content is Slider content && content == slider) {
+            this.Value = this.ValueDisplay;
         }
     }
 }

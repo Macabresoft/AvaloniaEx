@@ -8,5 +8,6 @@
             Padding="0"
             Margin="{StaticResource StandardMarginHorizontal}"
             TickFrequency="1"
-            IsSnapToTickEnabled="True" />
+            IsSnapToTickEnabled="True"
+            KeyUp="Slider_OnKeyUp"/>
 </UserControl>

@@ -17,13 +17,10 @@ public partial class ColorSlider : UserControl, IObserver<AvaloniaPropertyChange
             (editor, value) => editor.ValueDisplay = value);
 
     public static readonly StyledProperty<byte> ValueProperty =
-        AvaloniaProperty.Register<ColorSlider, byte>(nameof(Value));
+        AvaloniaProperty.Register<ColorSlider, byte>(nameof(Value), defaultBindingMode: BindingMode.TwoWay);
 
     private IDisposable _pointerReleaseDispose;
     private byte _valueDisplay;
-
-    static ColorSlider() {
-    }
 
     public ColorSlider() {
         ValueProperty.Changed.Subscribe(this);
@@ -53,12 +50,6 @@ public partial class ColorSlider : UserControl, IObserver<AvaloniaPropertyChange
     private void OnPointerReleased(object sender, PointerReleasedEventArgs e) {
         if (this.Value != this.ValueDisplay) {
             this.Value = this.ValueDisplay;
-        }
-    }
-
-    private static void OnValueChanging(AvaloniaObject control, bool isBeforeChange) {
-        if (!isBeforeChange && control is ColorSlider slider && slider.Value != slider.ValueDisplay) {
-            slider.ValueDisplay = slider.Value;
         }
     }
 

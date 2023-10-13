@@ -48,7 +48,7 @@
                 Grid.Column="0"
                 Classes="Card"
                 Margin="{StaticResource DoubleMarginAll}">
-            <Grid RowDefinitions="Auto, *, Auto">
+            <Grid RowDefinitions="Auto, *, Auto, Auto">
                 <Slider Grid.Row="0"
                         Margin="{StaticResource StandardMarginAll}"
                         Minimum="0"
@@ -63,8 +63,20 @@
                                      Width="256"
                                      Height="256" />
                 </Viewbox>
+                
+                <Grid Grid.Row="2"
+                      ColumnDefinitions="Auto, *"
+                            HorizontalAlignment="Stretch">
+                    <TextBox Grid.Column="0"
+                             Text="{Binding ColorValue, Mode=TwoWay}"
+                             Width="64" />
+                    
+                    <avaloniaEx:ColorSlider Grid.Column="1"
+                                            HorizontalAlignment="Stretch"
+                                            Value="{Binding ColorValue}" />
+                </Grid>
 
-                <StackPanel Grid.Row="2"
+                <StackPanel Grid.Row="3"
                             VerticalAlignment="Bottom"
                             HorizontalAlignment="Center"
                             Orientation="Horizontal"

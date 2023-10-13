@@ -61,6 +61,13 @@ public class MainWindowViewModel : ReactiveObject {
 
     public ICommand ToggleUndoCommand { get; }
 
+    private byte _colorValue;
+    
+    public byte ColorValue {
+        get => this._colorValue;
+        set => this.RaiseAndSetIfChanged(ref this._colorValue, value);
+    }
+
     public IReadOnlyCollection<string> List { get; }
 
     public string LoremIpsum => Resources.Lorem_Ipsum;

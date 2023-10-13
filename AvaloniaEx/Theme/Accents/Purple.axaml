@@ -8,10 +8,5 @@
         <Color x:Key="SystemAccentColorLight1">#FFC8AB37</Color>
         <Color x:Key="SystemAccentColorLight2">#DDC8AB37</Color>
         <Color x:Key="SystemAccentColorLight3">#BBC8AB37</Color>
-
-        <StaticResource x:Key="SliderThumbBackground" ResourceKey="SystemControlForegroundAccentBrush" />
-        <StaticResource x:Key="SliderThumbBackgroundPointerOver" ResourceKey="SystemAccentColorLight1" />
-        <StaticResource x:Key="SliderThumbBackgroundPressed" ResourceKey="SystemAccentColorDark1" />
-        <StaticResource x:Key="SliderThumbBackgroundDisabled" ResourceKey="SystemControlDisabledChromeDisabledHighBrush" />
     </Style.Resources>
 </Style>

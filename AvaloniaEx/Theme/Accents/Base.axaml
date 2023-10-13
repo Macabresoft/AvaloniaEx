@@ -34,12 +34,7 @@
 
         <Color x:Key="SystemRevealListLowColor">#18E3DAC9</Color>
         <Color x:Key="SystemRevealListMediumColor">#30E3DAC9</Color>
-
-        <StaticResource x:Key="SliderTrackValueFill" ResourceKey="SystemControlForegroundBaseMediumLowBrush" />
-        <StaticResource x:Key="SliderTrackValueFillPointerOver" ResourceKey="SystemControlForegroundBaseMediumBrush" />
-        <StaticResource x:Key="SliderTrackValueFillPressed" ResourceKey="SystemControlForegroundBaseMediumLowBrush" />
-        <StaticResource x:Key="SliderTrackValueFillDisabled" ResourceKey="SystemControlDisabledChromeDisabledHighBrush" />
-
+        
         <SolidColorBrush x:Key="PurpleBrush" Color="#634960" />
         <SolidColorBrush x:Key="RedBrush" Color="#822626" />
         <SolidColorBrush x:Key="GreenBrush" Color="#477E39" />

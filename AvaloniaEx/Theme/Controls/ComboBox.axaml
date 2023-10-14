@@ -31,12 +31,14 @@
 
                         <TextBlock x:Name="PlaceholderTextBlock"
                                    Grid.Column="0"
+                                   TextTrimming="CharacterEllipsis"
                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                    Margin="{TemplateBinding Padding}"
                                    Text="{TemplateBinding PlaceholderText}"
                                    Foreground="{TemplateBinding PlaceholderForeground}"
-                                   IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+                                   IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}"
+                                   ToolTip.Tip="{Binding Text, RelativeSource={RelativeSource Self}}"/>
 
                         <Border x:Name="DropDownOverlay"
                                 Grid.Column="1"

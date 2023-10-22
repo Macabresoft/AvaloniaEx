@@ -1,5 +1,6 @@
 namespace Macabresoft.AvaloniaEx;
 
+using System;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
@@ -10,6 +11,7 @@ using Avalonia.Media;
 using Avalonia.Platform;
 
 public partial class BaseDialog : Window, IWindow {
+    private bool _isHandlingMaximize;
     public static readonly StyledProperty<ICommand> CloseCommandProperty =
         AvaloniaProperty.Register<BaseDialog, ICommand>(nameof(CloseCommand), defaultBindingMode: BindingMode.OneWay, defaultValue: WindowHelper.CloseDialogCommand);
 
@@ -81,25 +83,37 @@ public partial class BaseDialog : Window, IWindow {
     }
 
     private void ResetWindowChrome() {
-        if (this.WindowState is WindowState.Maximized or WindowState.FullScreen) {
-            this.SystemDecorations = SystemDecorations.BorderOnly;
-            this.ExtendClientAreaChromeHints = ExtendClientAreaChromeHints.Default;
-        }
-        else {
-            this.SystemDecorations = SystemDecorations.None;
-            this.ExtendClientAreaChromeHints = ExtendClientAreaChromeHints.NoChrome;
+        if (!this._isHandlingMaximize) {
+            try {
+                this._isHandlingMaximize = true;
+
+                if (this.WindowState is WindowState.Maximized) {
+                    this.WindowState = WindowState.Normal;
+                    this.WindowState = WindowState.Maximized;
+                }
+            }
+            finally {
+                this._isHandlingMaximize = false;
+            }
         }
     }
 
-    // ReSharper disable once UnusedParameter.Local
-    private void TitleBar_OnDoubleTapped(object sender, TappedEventArgs e) {
+    private void TitleBar_OnDoubleTapped(object _, TappedEventArgs e) {
         if (this.CanResize) {
-            WindowHelper.ToggleWindowStateCommand.Execute(this);
+            WindowHelper.ToggleWindowState(this);
         }
     }
 
-    // ReSharper disable once UnusedParameter.Local
-    private void TitleBar_OnPointerPressed(object sender, PointerPressedEventArgs e) {
+    private void TitleBar_OnPointerPressed(object _, PointerPressedEventArgs e) {
+        if (this.WindowState != WindowState.Normal) {
+            var position = this.Position;
+            this.WindowState = WindowState.Normal;
+            this.Position = position;
+            var mousePosition = e.GetPosition(null);
+            var x = (int)Math.Floor(this.Position.X + mousePosition.X);
+            this.Position = new PixelPoint(x, position.Y);
+        }
+        
         this.BeginMoveDrag(e);
     }
 }

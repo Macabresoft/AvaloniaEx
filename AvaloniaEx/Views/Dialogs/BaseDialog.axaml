@@ -5,7 +5,8 @@
         Padding="{StaticResource StandardMarginAll}"
         ShowInTaskbar="False"
         ShowMinimize="False"
-        ExtendClientAreaChromeHints="NoChrome"
+        SystemDecorations="BorderOnly"
+        CanResize="True"
         ExtendClientAreaToDecorationsHint="True"
         WindowStartupLocation="CenterOwner"
         Background="{StaticResource SystemAltHighColor}">

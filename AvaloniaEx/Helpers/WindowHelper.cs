@@ -31,7 +31,11 @@ public static class WindowHelper {
         window.WindowState = WindowState.Minimized;
     }
 
-    private static void ToggleWindowState(IWindow window) {
+    /// <summary>
+    /// Toggles the window state.
+    /// </summary>
+    /// <param name="window">The window.</param>
+    internal static void ToggleWindowState(IWindow window) {
         window.WindowState = window.WindowState is WindowState.Maximized or WindowState.FullScreen ? WindowState.Normal : WindowState.Maximized;
     }
 }

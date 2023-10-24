@@ -9,6 +9,7 @@
         CanResize="True"
         ExtendClientAreaToDecorationsHint="True"
         WindowStartupLocation="CenterOwner"
+        PositionChanged="WindowBase_OnPositionChanged"
         Background="{StaticResource SystemAltHighColor}">
     <Window.Template>
         <ControlTemplate>

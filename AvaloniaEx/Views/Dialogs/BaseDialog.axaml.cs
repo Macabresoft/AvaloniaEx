@@ -1,6 +1,5 @@
 namespace Macabresoft.AvaloniaEx;
 
-using System;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
@@ -99,21 +98,18 @@ public partial class BaseDialog : Window, IWindow {
     }
 
     private void TitleBar_OnPointerPressed(object _, PointerPressedEventArgs e) {
-        if (this.WindowState != WindowState.Normal && !this._isHandlingMaximize) {
+        this.BeginMoveDrag(e);
+    }
+
+    private void WindowBase_OnPositionChanged(object _, PixelPointEventArgs e) {
+        if (this.WindowState == WindowState.Maximized && !this._isHandlingMaximize) {
             try {
                 this._isHandlingMaximize = true;
-                var position = this.Position;
                 this.WindowState = WindowState.Normal;
-                this.Position = position;
-                var mousePosition = e.GetPosition(null);
-                var x = (int)Math.Floor(this.Position.X + mousePosition.X);
-                this.Position = new PixelPoint(x, position.Y);
             }
             finally {
                 this._isHandlingMaximize = false;
             }
         }
-
-        this.BeginMoveDrag(e);
     }
 }

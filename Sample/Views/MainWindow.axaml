@@ -9,7 +9,7 @@
                        ShowMinimize="True"
                        Title="AvaloniaEx Sample"
                        ShowInTaskbar="True"
-                       WindowState="Normal"
+                       WindowState="Maximized"
                        Width="1024"
                        Height="768"
                        Background="{StaticResource SystemAccentBrush}"

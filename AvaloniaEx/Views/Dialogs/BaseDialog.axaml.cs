@@ -26,7 +26,7 @@ public partial class BaseDialog : Window, IWindow {
     public static readonly StyledProperty<StreamGeometry> VectorIconProperty =
         AvaloniaProperty.Register<BaseDialog, StreamGeometry>(nameof(VectorIcon), defaultBindingMode: BindingMode.OneWay);
 
-    private bool _isHandlingMaximize;
+    private bool _isHandlingMaximize = true;
 
     public BaseDialog() {
         this.InitializeComponent();
@@ -64,6 +64,7 @@ public partial class BaseDialog : Window, IWindow {
 
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e) {
         base.OnAttachedToVisualTree(e);
+        this._isHandlingMaximize = false;
         this.ResetWindowChrome();
     }
 

@@ -10,7 +10,6 @@ using ReactiveUI;
 
 public class MainWindowViewModel : ReactiveObject {
     private readonly IUndoService _undoService;
-    private bool _canUndo = true;
 
     private byte _colorValueA;
 
@@ -31,19 +30,21 @@ public class MainWindowViewModel : ReactiveObject {
     }
 
     public bool CanUndo {
-        get => this._canUndo;
+        get => this._undoService.CanUndo;
         set {
-            if (value != this._canUndo) {
-                var originalValue = this._canUndo;
-                this._undoService.Do(() =>
-                {
-                    this._canUndo = value;
-                    this.RaisePropertyChanged();
-                }, () =>
-                {
-                    this._canUndo = originalValue;
-                    this.RaisePropertyChanged();
-                });
+            if (value != this.CanUndo) {
+                if (this.CanUndo) {
+                    this._undoService.Undo();
+                }
+                else {
+                    this._undoService.Do(() =>
+                    {
+                        this.RaisePropertyChanged();
+                    }, () =>
+                    {
+                        this.RaisePropertyChanged();
+                    });
+                }
             }
         }
     }

@@ -4,9 +4,9 @@
         <RootNamespace>Macabresoft.AvaloniaEx</RootNamespace>
         <LangVersion>default</LangVersion>
         <Title>AvaloniaEx by Macabresoft</Title>
-        <Authors>Macabresoft, Brett Story</Authors>
+        <Authors>Macabresoft, macabrett, Brett Story</Authors>
         <Description>A theme and control library for Avalonia.</Description>
-        <Copyright>Copyright © 2021 - 2023</Copyright>
+        <Copyright>Copyright © 2021 - 2024</Copyright>
         <PackageProjectUrl>https://github.com/Macabresoft/Macabresoft.AvaloniaEx</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/Macabresoft/Macabresoft.AvaloniaEx</RepositoryUrl>
@@ -14,9 +14,9 @@
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <Company>Macabresoft</Company>
         <PackageIcon>icon.png</PackageIcon>
-        <AssemblyVersion>2.0.14.0</AssemblyVersion>
-        <FileVersion>2.0.14.0</FileVersion>
-        <PackageVersion>2.0.14</PackageVersion>
+        <AssemblyVersion>2.0.15.0</AssemblyVersion>
+        <FileVersion>2.0.15.0</FileVersion>
+        <PackageVersion>2.0.15</PackageVersion>
         <TargetFramework>net8.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>

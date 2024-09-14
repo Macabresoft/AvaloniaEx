@@ -98,9 +98,9 @@ public partial class EditableSelectableItem : UserControl, IObserver<AvaloniaPro
 
     private void CommitNewText(string newText) {
         if (this.TextCommittedCommand != null && this.TextCommittedCommand.CanExecute(newText)) {
-            this.TextCommittedCommand.Execute(newText);
             this.Text = newText;
             this.IsEditing = false;
+            this.TextCommittedCommand.Execute(newText);
         }
     }
 

@@ -17,7 +17,7 @@ public class FlagsEnumToBoolConverter : IMultiValueConverter {
 
     /// <inheritdoc />
     public object Convert(IList<object> values, Type targetType, object parameter, CultureInfo culture) {
-        object result = 0;
+        var result = false;
 
         if (values.Count == 2) {
             var value0 = values[0];

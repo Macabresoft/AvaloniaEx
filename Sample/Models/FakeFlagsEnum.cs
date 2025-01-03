@@ -29,5 +29,17 @@ public enum FakeFlagsEnum {
     Seventh = 1 << 6,
 
     [Display(Name = "8th")]
-    Eighth = 1 << 7
+    Eighth = 1 << 7,
+    Ninth = 1 << 8,
+    Tenth = 1 << 9,
+    Eleventh = 1 << 10,
+    Twelfth = 1 << 11,
+    Thirteenth = 1 << 12,
+    Fourteenth = 1 << 13,
+    Fifteenth = 1 << 14,
+    Sixteenth = 1 << 15,
+    Seventeenth = 1 << 16,
+    Eighteenth = 1 << 17,
+    Nineteenth = 1 << 18,
+    Twentieth = 1 << 19
 }

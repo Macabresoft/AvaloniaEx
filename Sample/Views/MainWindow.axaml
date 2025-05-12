@@ -177,8 +177,19 @@
                                        TextWrapping="Wrap" />
                         </avaloniaEx:GroupBox>
                         <avaloniaEx:GroupBox Header="Dolor">
-                            <TextBlock Text="{Binding LoremIpsum}"
-                                       TextWrapping="Wrap" />
+                            <Grid ColumnDefinitions="*, Auto, *">
+                                <TextBlock Grid.Column="0"
+                                           Text="{Binding LoremIpsum}"
+                                           TextWrapping="Wrap" />
+                                
+                                <Border Grid.Column="1"
+                                        Classes="VerticalSeparator" />
+                                
+                                <TextBlock Grid.Column="2"
+                                           Text="{Binding LoremIpsum}"
+                                           TextWrapping="Wrap" />
+                            </Grid>
+
                         </avaloniaEx:GroupBox>
                     </ItemsControl.Items>
                 </ItemsControl>

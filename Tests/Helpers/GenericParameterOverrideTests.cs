@@ -1,8 +1,8 @@
 ﻿namespace Macabresoft.AvaloniaEx.Tests;
 
 using System;
-using FluentAssertions;
-using FluentAssertions.Execution;
+using AwesomeAssertions;
+using AwesomeAssertions.Execution;
 using NUnit.Framework;
 using Unity;
 

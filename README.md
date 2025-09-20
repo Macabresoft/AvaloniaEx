@@ -2,7 +2,7 @@
 
 A theme and control library for Avalonia.
 
-## Compatability
+## Compatibility
 
 | Avalonia | AvaloniaEx |
 |----------|------------|

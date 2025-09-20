@@ -14,11 +14,12 @@
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <Company>Macabresoft</Company>
         <PackageIcon>icon.png</PackageIcon>
-        <AssemblyVersion>2.0.25.0</AssemblyVersion>
-        <FileVersion>2.0.25.0</FileVersion>
-        <PackageVersion>2.0.25</PackageVersion>
+        <AssemblyVersion>2.0.26.0</AssemblyVersion>
+        <FileVersion>2.0.26.0</FileVersion>
+        <PackageVersion>2.0.26</PackageVersion>
         <TargetFramework>net8.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.3.6" />
@@ -37,5 +38,7 @@
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </Content>
+
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 </Project>

@@ -8,7 +8,7 @@ using Avalonia.Input;
 /// <summary>
 /// A <see cref="IDataObject" /> that wraps an <see cref="object" />.
 /// </summary>
-public class GenericDataObject : IDataObject {
+public class GenericDataObject : IDataTransfer {
     private readonly string _name;
 
     /// <summary>
@@ -25,26 +25,15 @@ public class GenericDataObject : IDataObject {
     public object GenericObject { get; }
 
     /// <inheritdoc />
-    public bool Contains(string dataFormat) {
-        return false;
+    public override string ToString() => this._name;
+
+    /// <inheritdoc />
+    public void Dispose() {
     }
 
     /// <inheritdoc />
-    public object Get(string dataFormat) {
-        return this.GenericObject;
-    }
-
-    public IEnumerable<string> GetDataFormats() {
-        return Enumerable.Empty<string>();
-    }
-
+    public IReadOnlyList<DataFormat> Formats { get; } = [];
+    
     /// <inheritdoc />
-    public IEnumerable<string> GetFileNames() {
-        return Enumerable.Empty<string>();
-    }
-
-    /// <inheritdoc />
-    public string GetText() {
-        return this._name;
-    }
+    public IReadOnlyList<IDataTransferItem> Items { get; } = [];
 }

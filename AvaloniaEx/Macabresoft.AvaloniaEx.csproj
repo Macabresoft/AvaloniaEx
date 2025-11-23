@@ -22,10 +22,10 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.3.8" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.8" />
+        <PackageReference Include="Avalonia" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.9" />
         <PackageReference Include="Avalonia.ReactiveUI" Version="11.3.8" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.8" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.9" />
         <PackageReference Include="Macabresoft.Core" Version="2.0.1" />
         <PackageReference Include="Unity" Version="5.11.10" />
     </ItemGroup>

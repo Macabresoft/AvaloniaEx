@@ -43,8 +43,6 @@ public partial class EditableSelectableItem : UserControl, IObserver<AvaloniaPro
     public static readonly StyledProperty<string> TextProperty =
         AvaloniaProperty.Register<EditableSelectableItem, string>(nameof(Text), string.Empty);
 
-    private bool _isEditing;
-
     public EditableSelectableItem() {
         TextProperty.Changed.Subscribe(this);
 
@@ -73,8 +71,8 @@ public partial class EditableSelectableItem : UserControl, IObserver<AvaloniaPro
     }
 
     public bool IsEditing {
-        get => this._isEditing;
-        set => this.SetAndRaise(IsEditingProperty, ref this._isEditing, value);
+        get;
+        set => this.SetAndRaise(IsEditingProperty, ref field, value);
     }
 
     public bool IsFileName {
@@ -98,9 +96,9 @@ public partial class EditableSelectableItem : UserControl, IObserver<AvaloniaPro
 
     private void CommitNewText(string newText) {
         if (this.TextCommittedCommand != null && this.TextCommittedCommand.CanExecute(newText)) {
+            this.TextCommittedCommand.Execute(newText);
             this.Text = newText;
             this.IsEditing = false;
-            this.TextCommittedCommand.Execute(newText);
         }
     }
 

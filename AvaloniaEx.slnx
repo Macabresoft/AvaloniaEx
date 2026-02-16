@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="AvaloniaEx/Macabresoft.AvaloniaEx.csproj" />
+  <Project Path="Sample/Macabresoft.AvaloniaEx.Sample.csproj" />
+  <Project Path="Tests/Macabresoft.AvaloniaEx.Tests.csproj" />
+</Solution>

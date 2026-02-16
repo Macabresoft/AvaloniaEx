@@ -5,12 +5,11 @@ using System.IO;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Data;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Avalonia.Threading;
+using Macabresoft.Core;
 using ReactiveUI;
 
 public partial class EditableSelectableItem : UserControl, IObserver<AvaloniaPropertyChangedEventArgs<string>> {
@@ -90,15 +89,26 @@ public partial class EditableSelectableItem : UserControl, IObserver<AvaloniaPro
         set => this.SetValue(TextCommittedCommandProperty, value);
     }
 
-    private static bool CanEditItem(IDataContextProvider control) {
-        return control?.DataContext != null && control is ISelectable { IsSelected: true };
+    public void OnCompleted() {
     }
 
+    public void OnError(Exception error) {
+    }
+
+    public void OnNext(AvaloniaPropertyChangedEventArgs<string> value) {
+        if (this.TryGetEditableTextBox(out var textBox)) {
+            textBox.Text = this.GetEditableText(this.Text);
+        }
+    }
+
+    private static bool CanEditItem(IDataContextProvider control) => control?.DataContext != null && control is ISelectable { IsSelected: true };
+
     private void CommitNewText(string newText) {
-        if (this.TextCommittedCommand != null && this.TextCommittedCommand.CanExecute(newText)) {
-            this.TextCommittedCommand.Execute(newText);
+        var arguments = new ValueChangedEventArgs<string>(this.Text, newText);
+        if (this.TextCommittedCommand != null && this.TextCommittedCommand.CanExecute(arguments)) {
             this.Text = newText;
             this.IsEditing = false;
+            this.TextCommittedCommand.Execute(arguments);
         }
     }
 
@@ -164,17 +174,5 @@ public partial class EditableSelectableItem : UserControl, IObserver<AvaloniaPro
     private bool TryGetEditableTextBox(out TextBox textBox) {
         textBox = this.FindControl<TextBox>("_editableTextBox");
         return textBox != null;
-    }
-
-    public void OnCompleted() {
-    }
-
-    public void OnError(Exception error) {
-    }
-
-    public void OnNext(AvaloniaPropertyChangedEventArgs<string> value) {
-        if (this.TryGetEditableTextBox(out var textBox)) {
-            textBox.Text = this.GetEditableText(this.Text);
-        }
     }
 }

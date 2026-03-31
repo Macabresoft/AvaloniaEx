@@ -1,7 +1,10 @@
 ﻿namespace Macabresoft.AvaloniaEx.Sample;
 
 using System;
+using System.Reflection;
 using Avalonia;
+using Macabresoft.AvaloniaEx.Sample.ViewModels;
+using ReactiveUI;
 using ReactiveUI.Avalonia;
 
 internal class Program {
@@ -11,7 +14,17 @@ internal class Program {
         => AppBuilder.Configure<App>()
             .UsePlatformDetect()
             .LogToTrace()
-            .UseReactiveUI();
+            .UseReactiveUI(rxAppBuilder =>
+            { 
+                // Enable ReactiveUI
+                rxAppBuilder
+                    .WithViewsFromAssembly(Assembly.GetExecutingAssembly())
+                    .WithRegistration(locator =>
+                    {
+                        // Register your services here
+                        locator.RegisterLazySingleton<IScreen>(() => new MainWindowViewModel());
+                    });
+            }).RegisterReactiveUIViewsFromEntryAssembly();
 
     // Initialization code. Don't use any Avalonia, third-party APIs or any
     // SynchronizationContext-reliant code before AppMain is called: things aren't initialized

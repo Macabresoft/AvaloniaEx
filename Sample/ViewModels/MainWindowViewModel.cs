@@ -8,14 +8,8 @@ using Macabresoft.AvaloniaEx.Sample.Models;
 using Macabresoft.Core;
 using ReactiveUI;
 
-public class MainWindowViewModel : ReactiveObject {
+public class MainWindowViewModel : ReactiveObject, IScreen {
     private readonly IUndoService _undoService;
-
-    private byte _colorValueA;
-
-    private byte _colorValueB;
-    private FakeFlagsEnum _selectedFakeFlagsEnumValue;
-    private FileSystemObject? _selectedTreeItem;
 
     public MainWindowViewModel() : this(new UndoService()) {
     }
@@ -26,7 +20,7 @@ public class MainWindowViewModel : ReactiveObject {
         this.ToggleUndoCommand = ReactiveCommand.Create(() => this.CanUndo = !this.CanUndo);
         this.ViewSourceCommand = ReactiveCommand.Create(this.ViewSource);
         this.List = this.CreateList();
-        this.Root = new[] { this.CreateFakeDirectory(2, 0, "Root") };
+        this.Root = [this.CreateFakeDirectory(2, 0, "Root")];
     }
 
     public bool CanUndo {
@@ -37,26 +31,20 @@ public class MainWindowViewModel : ReactiveObject {
                     this._undoService.Undo();
                 }
                 else {
-                    this._undoService.Do(() =>
-                    {
-                        this.RaisePropertyChanged();
-                    }, () =>
-                    {
-                        this.RaisePropertyChanged();
-                    });
+                    this._undoService.Do(() => { this.RaisePropertyChanged(); }, () => { this.RaisePropertyChanged(); });
                 }
             }
         }
     }
 
     public byte ColorValueA {
-        get => this._colorValueA;
-        set => this.RaiseAndSetIfChanged(ref this._colorValueA, value);
+        get;
+        set => this.RaiseAndSetIfChanged(ref field, value);
     }
 
     public byte ColorValueB {
-        get => this._colorValueB;
-        set => this.RaiseAndSetIfChanged(ref this._colorValueB, value);
+        get;
+        set => this.RaiseAndSetIfChanged(ref field, value);
     }
 
     public IReadOnlyCollection<FakeFlagsEnum> LimitedFlagsEnum { get; } = new[] { FakeFlagsEnum.First, FakeFlagsEnum.Second, FakeFlagsEnum.Fourth, FakeFlagsEnum.Eighth };
@@ -71,14 +59,16 @@ public class MainWindowViewModel : ReactiveObject {
 
     public IReadOnlyCollection<FileSystemObject> Root { get; }
 
+    public RoutingState Router { get; } = new();
+
     public FakeFlagsEnum SelectedFakeFlagsEnumValue {
-        get => this._selectedFakeFlagsEnumValue;
-        set => this.RaiseAndSetIfChanged(ref this._selectedFakeFlagsEnumValue, value);
+        get;
+        set => this.RaiseAndSetIfChanged(ref field, value);
     }
 
     public FileSystemObject? SelectedTreeItem {
-        get => this._selectedTreeItem;
-        set => this.RaiseAndSetIfChanged(ref this._selectedTreeItem, value);
+        get;
+        set => this.RaiseAndSetIfChanged(ref field, value);
     }
 
     public ICommand ToggleUndoCommand { get; }

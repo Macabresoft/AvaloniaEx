@@ -6,5 +6,6 @@ A theme and control library for Avalonia.
 
 | Avalonia | AvaloniaEx |
 |----------|------------|
+| v12      | v3         |
 | v11      | v2         |
 | v10      | v1         |

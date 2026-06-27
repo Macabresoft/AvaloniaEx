@@ -26,8 +26,6 @@ public partial class BaseDialog : Window, IWindow {
     public static readonly StyledProperty<StreamGeometry> VectorIconProperty =
         AvaloniaProperty.Register<BaseDialog, StreamGeometry>(nameof(VectorIcon), defaultBindingMode: BindingMode.OneWay);
 
-    private bool _isHandlingMaximize = true;
-
     public BaseDialog() {
         this.InitializeComponent();
     }
@@ -62,36 +60,6 @@ public partial class BaseDialog : Window, IWindow {
         set => this.SetValue(VectorIconProperty, value);
     }
 
-    protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e) {
-        base.OnAttachedToVisualTree(e);
-        this._isHandlingMaximize = false;
-        this.ResetWindowChrome();
-    }
-
-    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change) {
-        base.OnPropertyChanged(change);
-
-        if (change.Property.Name is nameof(this.WindowState) or nameof(this.ClientSize)) {
-            this.ResetWindowChrome();
-        }
-    }
-
-    private void ResetWindowChrome() {
-        if (!this._isHandlingMaximize) {
-            try {
-                this._isHandlingMaximize = true;
-
-                if (this.WindowState is WindowState.Maximized) {
-                    this.WindowState = WindowState.Normal;
-                    this.WindowState = WindowState.Maximized;
-                }
-            }
-            finally {
-                this._isHandlingMaximize = false;
-            }
-        }
-    }
-
     private void TitleBar_OnDoubleTapped(object _, TappedEventArgs e) {
         if (this.CanResize) {
             WindowHelper.ToggleWindowState(this);
@@ -100,17 +68,5 @@ public partial class BaseDialog : Window, IWindow {
 
     private void TitleBar_OnPointerPressed(object _, PointerPressedEventArgs e) {
         this.BeginMoveDrag(e);
-    }
-
-    private void WindowBase_OnPositionChanged(object _, PixelPointEventArgs e) {
-        if (this.WindowState == WindowState.Maximized && !this._isHandlingMaximize) {
-            try {
-                this._isHandlingMaximize = true;
-                this.WindowState = WindowState.Normal;
-            }
-            finally {
-                this._isHandlingMaximize = false;
-            }
-        }
     }
 }

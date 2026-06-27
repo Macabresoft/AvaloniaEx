@@ -2,6 +2,7 @@ namespace Macabresoft.AvaloniaEx;
 
 using System;
 using System.IO;
+using System.Reactive;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
@@ -108,7 +109,17 @@ public partial class EditableSelectableItem : UserControl, IObserver<AvaloniaPro
         if (this.TextCommittedCommand != null && this.TextCommittedCommand.CanExecute(arguments)) {
             this.Text = newText;
             this.IsEditing = false;
-            this.TextCommittedCommand.Execute(arguments);
+            switch (this.TextCommittedCommand) {
+                case ReactiveCommand<ValueChangedEventArgs<string>, Unit>:
+                    this.TextCommittedCommand.Execute(arguments);
+                    break;
+                case ReactiveCommand<string, Unit>:
+                    this.TextCommittedCommand.Execute(arguments.UpdatedValue);
+                    break;
+                default:
+                    this.TextCommittedCommand.Execute(null);
+                    break;
+            }
         }
     }
 

@@ -5,6 +5,7 @@
                        xmlns:models="clr-namespace:Macabresoft.AvaloniaEx.Sample.Models"
                        xmlns:vm="using:Macabresoft.AvaloniaEx.Sample.ViewModels"
                        x:Class="Macabresoft.AvaloniaEx.Sample.Views.MainWindow"
+                       x:DataType="vm:MainWindowViewModel"
                        CanResize="True"
                        ShowMinimize="True"
                        Title="AvaloniaEx Sample"
@@ -227,7 +228,7 @@
                         <avaloniaEx:EditableSelectableItem Icon="{StaticResource FileIcon}"
                                                            IconForeground="{StaticResource WhiteBrush}"
                                                            Text="{Binding Name}"
-                                                           TextCommittedCommand="{Binding $parent[local:MainWindow].DataContext.RenameCommand}"
+                                                           TextCommittedCommand="{Binding $parent[local:MainWindow].ViewModel.RenameCommand, FallbackValue={x:Null}}"
                                                            IsEditable="True" />
 
                     </TreeDataTemplate>

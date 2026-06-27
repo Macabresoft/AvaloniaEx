@@ -19,7 +19,7 @@ public class MainWindowViewModel : ReactiveObject, IScreen {
         this.RenameCommand = ReactiveCommand.Create<string>(this.RenameChild);
         this.ToggleUndoCommand = ReactiveCommand.Create(() => this.CanUndo = !this.CanUndo);
         this.ViewSourceCommand = ReactiveCommand.Create(this.ViewSource);
-        this.List = this.CreateList();
+        this.List = CreateList();
         this.Root = [this.CreateFakeDirectory(2, 0, "Root")];
     }
 
@@ -47,7 +47,7 @@ public class MainWindowViewModel : ReactiveObject, IScreen {
         set => this.RaiseAndSetIfChanged(ref field, value);
     }
 
-    public IReadOnlyCollection<FakeFlagsEnum> LimitedFlagsEnum { get; } = new[] { FakeFlagsEnum.First, FakeFlagsEnum.Second, FakeFlagsEnum.Fourth, FakeFlagsEnum.Eighth };
+    public IReadOnlyCollection<FakeFlagsEnum> LimitedFlagsEnum { get; } = [FakeFlagsEnum.First, FakeFlagsEnum.Second, FakeFlagsEnum.Fourth, FakeFlagsEnum.Eighth];
 
     public IReadOnlyCollection<string> List { get; }
 
@@ -75,7 +75,7 @@ public class MainWindowViewModel : ReactiveObject, IScreen {
 
     public ICommand ViewSourceCommand { get; }
 
-    private FakeDirectory CreateFakeDirectory(int maximumDepth, int currentDepth, string name) {
+    public FakeDirectory CreateFakeDirectory(int maximumDepth, int currentDepth, string name) {
         var random = new Random();
         var directory = new FakeDirectory { Name = name, Depth = currentDepth };
         if (currentDepth < maximumDepth) {
@@ -93,14 +93,12 @@ public class MainWindowViewModel : ReactiveObject, IScreen {
         return directory;
     }
 
-    private IReadOnlyCollection<string> CreateList() {
+    private static IReadOnlyCollection<string> CreateList() {
         return new string[25].Select(x => Guid.NewGuid().ToString()).ToList();
     }
 
     private void RenameChild(string updatedName) {
-        if (this.SelectedTreeItem != null) {
-            this.SelectedTreeItem.Name = updatedName;
-        }
+        this.SelectedTreeItem?.Name = updatedName;
     }
 
     private void ViewSource() {

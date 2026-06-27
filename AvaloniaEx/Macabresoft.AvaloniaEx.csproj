@@ -3,8 +3,8 @@
         <Nullable>disable</Nullable>
         <RootNamespace>Macabresoft.AvaloniaEx</RootNamespace>
         <LangVersion>default</LangVersion>
-        <Title>AvaloniaEx by Macabresoft</Title>
-        <Authors>Macabresoft, macabrett, Brett Story</Authors>
+        <Title>AvaloniaEx by macabrett</Title>
+        <Authors>macabrett, Brett Story</Authors>
         <Description>A theme and control library for Avalonia.</Description>
         <Copyright>Copyright © 2021 - 2026</Copyright>
         <PackageProjectUrl>https://github.com/Macabresoft/Macabresoft.AvaloniaEx</PackageProjectUrl>
@@ -14,19 +14,19 @@
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <Company>Macabresoft</Company>
         <PackageIcon>icon.png</PackageIcon>
-        <AssemblyVersion>2.0.36.0</AssemblyVersion>
-        <FileVersion>2.0.36.0</FileVersion>
-        <PackageVersion>2.0.36</PackageVersion>
+        <AssemblyVersion>3.0.0.0</AssemblyVersion>
+        <FileVersion>3.0.0.0</FileVersion>
+        <PackageVersion>3.0.0</PackageVersion>
         <TargetFramework>net10.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.3.13" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.13" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.13" />
+        <PackageReference Include="Avalonia" Version="12.0.5" />
+        <PackageReference Include="Avalonia.Desktop" Version="12.0.5" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="12.0.5" />
         <PackageReference Include="Macabresoft.Core" Version="2.0.2" />
-        <PackageReference Include="ReactiveUI.Avalonia" Version="11.4.12" />
+        <PackageReference Include="ReactiveUI.Avalonia" Version="12.0.3" />
         <PackageReference Include="Unity" Version="5.11.10" />
     </ItemGroup>
     <ItemGroup>
